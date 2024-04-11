@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+/* 
+    SchoolRegistationSystem
+
+    Footer Style Sheet
+    Author: Rikki Tomiko Ehrhart
+    Last Updated: 04.11.2024
+
+    Filename: footer.css
+*/
+
+
+/* FOOTER */
+footer {
+    background-color: #008dda;
+    box-shadow: #41c9e2 0 0 15px;
+    margin-top: 50px;
+    padding: 25px;
+    color: #ace2e1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-left {
+    width: 33%;
+}
+
+.footer-left ul {
+    list-style-type: none;
+}
+
+.footer-left ul li a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #f7eedf;
+    text-decoration: none;
+}
+
+.footer-center {
+    width: 33%;
+}
+
+.footer-right {
+    width: 33%;
+}

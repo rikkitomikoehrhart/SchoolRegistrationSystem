@@ -38,3 +38,19 @@
     font-family: cursive;
 }
 
+
+/* ARTICLE */
+.article-title h2 {
+    font-size: 4rem;
+    font-family: cursive;
+    padding: 50px 25px 0 25px;
+    color: #008DDA;
+    text-shadow: #000000 1px 1px 0px;
+    margin: 0;
+}
+
+.article-paragraph p {
+    font-size: 1.5rem;
+    padding: 0 25px 0 25px;
+    margin: 0;
+}
