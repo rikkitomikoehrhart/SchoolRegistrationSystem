@@ -2,16 +2,16 @@
 A web application for a school registration system that allows students to register for courses and view their schedules -- this is my final project for my Beginner Web Programming Class, Spring 2024.
 ---
 # Table of Contents
-- [Project Requirements] (link)
-  - [User Authentication] (link)
-  - [Student Registration] (link)
-  - [Student Dashboard] (link)
-  - [Student Database] (link)
-  - [UX/UI Design] (link)
-  - [HTML/CSS] (link)
-  - [JavaScript] (link)
-  - [Documentation] (link)
-  - [Testing] (link)
+- [Project Requirements] (https://github.com/rikkitomikoehrhart/SchoolRegistrationSystem?tab=readme-ov-file#project-requirements)
+  - [User Authentication] (https://github.com/rikkitomikoehrhart/SchoolRegistrationSystem?tab=readme-ov-file#user-authentication)
+  - [Student Registration] (https://github.com/rikkitomikoehrhart/SchoolRegistrationSystem?tab=readme-ov-file#student-registration)
+  - [Student Dashboard] (https://github.com/rikkitomikoehrhart/SchoolRegistrationSystem?tab=readme-ov-file#student-registration)
+  - [Database] (https://github.com/rikkitomikoehrhart/SchoolRegistrationSystem?tab=readme-ov-file#database)
+  - [UX/UI Design] (https://github.com/rikkitomikoehrhart/SchoolRegistrationSystem?tab=readme-ov-file#uiux-design)
+  - [HTML/CSS] (https://github.com/rikkitomikoehrhart/SchoolRegistrationSystem?tab=readme-ov-file#htmlcss)
+  - [JavaScript] (https://github.com/rikkitomikoehrhart/SchoolRegistrationSystem?tab=readme-ov-file#javascript)
+  - [Documentation] (https://github.com/rikkitomikoehrhart/SchoolRegistrationSystem?tab=readme-ov-file#documentation)
+  - [Testing] (https://github.com/rikkitomikoehrhart/SchoolRegistrationSystem?tab=readme-ov-file#testing)
 
 
 
