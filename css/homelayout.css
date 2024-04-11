@@ -12,5 +12,29 @@
 
 
 /* MAIN */
+.title-image img {
+    z-index: 1;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: 0 20%;
+    box-shadow: #41C9E2 0px 0px 20px;
+}
 
+.title-title h1 {
+    z-index: 2;
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+    font-size: 6rem;
+    width: 100%;
+    height: 100px;
+    padding: 0;
+    margin: 20% 0 0 0;
+    text-align: center;
+    color: #F7EEDD;
+    text-shadow: #ACE2E1 2px 2px 2px;
+    font-family: cursive;
+}
 
