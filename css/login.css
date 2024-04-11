@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+/* 
+    SchoolRegistationSystem
+
+    Login Style Sheet
+    Author: Rikki Tomiko Ehrhart
+    Last Updated: 04.11.2024
+
+    Filename: login.css
+*/
+
+
+/* BODY */
+body {
+    background-image: url("../images/academicssign.jpg");
+    background-size: cover;
+}
+
+
+/* LOGIN BOX */
+.login-box {
+    position: absolute;
+    width: 40%;
+    top: 25%;
+    left: 25%;
+    background-color: #F7EEDD;
+    padding: 10px 50px 50px 50px;
+    border-radius: 25px;
+    box-shadow: #008dda 0px 0px 25px;
+}
+
+/* LOGIN ELEMENTS */
+.login-title h1 {
+    font-size: 4rem;
+    text-align: center;
+    color: #ACE2E1;
+    text-shadow: #41c9e2 2px 2px 2px;
+    font-family: cursive;
+    margin: 0;
+    padding: 25px 0 25px 0;
+}
+
+/* LOGIN FORM */
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0 0 20px 0;
+}
+
+.form-row label {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.25rem;
+    color: #014569;
+    text-transform: uppercase;
+}
+
+.form-row input {
+    width: 70%;
+    border: none;
+    border-radius: 10px;
+    height: 25px;
+    background-color: #ACE2E1;
+    box-shadow: #008dda 1px 1px 1px;
+}
+
+/* FORM BUTTONS */
+.form-submit {
+    display: flex;
+    justify-content: center;
+}
+
+.form-submit input {
+    margin: 0 10px 0 10px;
+    padding: 5px 50px 5px 50px;
+    border-radius: 10px;
+    background-color: #008dda;
+    color:#ACE2E1;
+}
