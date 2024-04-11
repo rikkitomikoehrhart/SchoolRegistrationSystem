@@ -11,4 +11,136 @@
 */
 
 
-/* BODY */
+/* MAIN LAYOUT */
+main {
+    display: flex;
+}
+
+
+/* SIDEBAR */
+aside {
+    width: 25%;
+    padding: 0px 10px 0px 40px;
+}
+
+.sidebar-title h3 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2rem;
+    color: #008dda;
+    text-shadow: #000000 1px 1px 0px;
+    text-align: center;
+}
+
+hr {
+    border-top: 15px dotted #014569;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    width: 30%;
+}
+
+.month h5 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5rem;
+    color: #ace2e1;
+    background-color: #41c9e2;
+    padding: 5px;
+    border-radius: 10px;
+    text-shadow: #008dda 1px 1px 1px;
+    margin: 50px 0 0 0;
+}
+
+.month ul {
+    list-style-type: circle;
+}
+
+.month ul li {
+    font-size: 1.1rem;
+    color: #014569;
+}
+
+
+/* MAIN SECTION - CALENDAR */
+article {
+    width: 75%;
+}
+
+h1 {
+    font-family: sans-serif;
+    font-size: 4rem;
+    color: #008dda;
+    text-shadow: #000000 1px 1px 0px;
+    text-align: center;
+    margin: 0;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+table, th, td {
+    border: 1px solid #014569;
+    border-collapse: collapse;
+}
+
+th {
+    width: 12.5%;
+}
+
+table {
+    width: 95%;
+    margin: 0 15px 0 15px;
+}
+
+.day-names {
+    background-color: #f7eedd;
+    color: #014569;
+}
+
+.time-cell {
+    background-color: #f7eedd;
+    color: #014569;
+    text-align: right;
+    height: 30px;
+    padding: 0 5px 0 0;
+}
+
+
+/* MAIN HR */
+main hr {
+    margin-top: 50px;
+    margin-bottom: 40px;    
+    width: 50%;
+}
+
+
+
+/* COURSE LIST */
+.course-gallery {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.course-card {
+    width: 30%;
+    background-color: #f7eedd;
+    border-radius: 10px;
+    box-shadow: #c9bda8 2px 2px 5px;
+}
+
+.course-card h5 {
+    margin: 25px;
+    font-size: 1.25rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 3px;
+    color: #014569;
+}
+
+.course-card p {
+    margin: 0 25px 10px 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.datetime {
+    font-family: monospace;
+    color: #99b1b6;
+}
