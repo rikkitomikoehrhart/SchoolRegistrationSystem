@@ -12,7 +12,7 @@ A web application for a school registration system that allows students to regis
   - [JavaScript](https://github.com/rikkitomikoehrhart/SchoolRegistrationSystem?tab=readme-ov-file#javascript)
   - [Documentation](https://github.com/rikkitomikoehrhart/SchoolRegistrationSystem?tab=readme-ov-file#documentation)
   - [Testing](https://github.com/rikkitomikoehrhart/SchoolRegistrationSystem?tab=readme-ov-file#testing)
-
+- [Resources](link)
 
 ---
 
@@ -50,3 +50,12 @@ A web application for a school registration system that allows students to regis
 
 ### Testing:
 - Thoroughly **test the web app** to ensure it functions as expected and is free of bugs.
+
+---
+
+## Resources
+
+
+### Images
+![Academics Sign on the side of a school building with graduates tossing their caps in front](https://github.com/rikkitomikoehrhart/SchoolRegistrationSystem/blob/main/images/academicssign.jpg?raw=true)
+Photo by [Leon Wu](https://unsplash.com/@leonjaywu?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/three-girls-in-graduation-gowns-hold-their-caps-in-the-air-LLfRMRT-9AY?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)  
