@@ -2,7 +2,7 @@
 A web application for a school registration system that allows students to register for courses and view their schedules -- this is my final project for my Beginner Web Programming Class, Spring 2024.
 ---
 
-##Project Requirements
+##Project Requirements##
 **User Authentication:**
 - Implement a user authentication system for students. Students should be able to **log in** and **access their accounts**.
 
@@ -27,7 +27,7 @@ A web application for a school registration system that allows students to regis
 - Use **HTML and CSS to structure and style the web app** (CSS Framework is welcome).
 
 **JavaScript**
-- Implement **client-side scripting using JAvaScript for interactivity**
+- Implement **client-side scripting using JavaScript for interactivity**
 - Ise JavaScript to **handle user actions**, **validate inputs**, and **update the UI dynamically**
 
 **Documentation:**
