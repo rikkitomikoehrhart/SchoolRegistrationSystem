@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+/* 
+    SchoolRegistationSystem
+
+    Navigation Bar Style Sheet
+    Author: Rikki Tomiko Ehrhart
+    Last Updated: 04.11.2024
+
+    Filename: navbar.css
+*/
+
+/* IMAGES */
+nav img {
+    width: 250px;
+    height: auto;
+}
+
+/* NAV */
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul {
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    margin-top: 50px;
+    margin-bottom: 0;
+}
+
+nav ul li a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #41c9e2;
+    text-decoration: none;
+    font-size: 1.5rem;
+    text-shadow: #008dda 1px 1px 0px;
+}

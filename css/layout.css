@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+/* 
+    SchoolRegistationSystem
+
+    Layout Style Sheet
+    Author: Rikki Tomiko Ehrhart
+    Last Updated: 04.11.2024
+
+    Filename: layout.css
+*/
+
+
+/* BODY */
+body {
+    padding: 0;
+    margin: 0;
+}
