@@ -16,3 +16,53 @@ main {
     display: flex;
 }
 
+aside {
+    padding-left: 25px;
+    width: 25%;
+}
+
+article {
+    width: 45%;
+}
+
+section {
+    padding-left: 25px;
+    width: 25%;
+}
+
+
+/* TITLES */
+
+h3 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2rem;
+    color: #008dda;
+    text-shadow: #000000 1px 1px 0px;
+    text-align: center;
+}
+
+h4 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2rem;
+    color: #014569;
+    padding: 0;
+    margin: 20px 0 0 0;
+}
+
+/* FILTER STYLES */
+.type-of-class, .subject {
+    background-color: #ace2e12f;
+    padding: 10px;
+    margin: 25px;
+    border-radius: 5px 25px 5px 25px;
+    box-shadow: #000000 1px 1px 3px;
+}
+
+.type-of-class label, .subject label {
+    padding: 5px;
+    color: #01456969;
+}
+
+.filter-obj {
+    margin: 10px 0 10px 0;
+}
