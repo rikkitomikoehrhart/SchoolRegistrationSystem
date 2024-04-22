@@ -37,25 +37,22 @@ h3 {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 2rem;
     color: #008dda;
-    text-shadow: #000000 1px 1px 0px;
     text-align: center;
 }
 
 h4 {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 2rem;
-    color: #014569;
+    color: #41c9e2;
     padding: 0;
     margin: 20px 0 0 0;
 }
 
+
 /* FILTER STYLES */
 .type-of-class, .subject {
-    background-color: #ace2e12f;
     padding: 10px;
     margin: 25px;
-    border-radius: 5px 25px 5px 25px;
-    box-shadow: #000000 1px 1px 3px;
 }
 
 .type-of-class label, .subject label {
@@ -65,4 +62,95 @@ h4 {
 
 .filter-obj {
     margin: 10px 0 10px 0;
+}
+
+
+/* CLASS CARDS */
+.class {
+    background-color: #f7eedd60;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+    box-shadow: #41404075 1px 1px 3px;
+}
+
+.class-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 30px;
+}
+
+.class-availablity, .class-day-time, class-add {
+    width: 33%;
+}
+
+
+
+.class-description, .class-day-time {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #414040;
+}
+
+
+.class-availablity span {
+    padding: 0px 5px 0px 0px;
+    margin: 0;
+}
+
+.class-add {
+    padding: 5px 25px 5px 25px;
+    border-radius: 10px;
+    border: none;
+    background-color: #41c9e2;
+    color: white;
+    box-shadow: #014569 1px 1px 2px;
+}
+
+.class-add:active {
+    box-shadow: none;
+}
+
+
+/* SELECTED CLASS LIST */
+.added-class {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    margin: 25px;
+}
+
+.added-class h5 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:#014569;
+}
+
+.added-class p {
+    font-size: .75rem;
+}
+
+.added-class button {
+    background-color: #FEFEFE;
+    border: none;
+    color: rgb(207, 2, 2);
+    font-size: 1.05rem;
+}
+
+.added-class button:active{
+    color:rgb(85, 1, 1);
+}
+
+.registration-button {
+    padding: 5px 25px 5px 25px;
+    border-radius: 10px;
+    border: none;
+    background-color: #41c9e2;
+    color: white;
+    box-shadow: #014569 1px 1px 2px;
+}
+
+.registration-button:active {
+    box-shadow: none;
 }
