@@ -77,8 +77,8 @@ h1 {
 }
 
 table, th, td {
-    border: 1px solid #014569;
-    border-collapse: collapse;
+
+    border-radius: 5px;
 }
 
 th {
@@ -88,6 +88,11 @@ th {
 table {
     width: 95%;
     margin: 0 15px 0 15px;
+}
+
+td {
+    background-color: white;
+    height: 25px;
 }
 
 .day-names {

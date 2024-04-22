@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        SchoolRegistrationSystem - index.html - Home Page
+
+        Author: Rikki Tomiko Ehrhart
+        Last Updated: 04.11.24
+
+        Filename: index.html
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brightview - Home Page</title>
+
+    <!-- CSS STYLE SHEETS -->
+    <link href="css/layout.css" rel="stylesheet" />
+    <link href="css/navbar.css" rel="stylesheet" />
+    <link href="css/footer.css" rel="stylesheet" />
+    <link href="css/registration.css" rel="stylesheet" />
+
+    <!-- LINKED JAVASCRIPT -->
+
+
+</head>
+<body>
+    <!-- NAV BAR -->
+    <nav>
+        <div class="logo">
+            <img src="images/brightviewcollegelogo.png" alt="The logo for Brightview College">
+        </div>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="dashboard.html">DASHBOARD</a></li>
+            <li><a href="registration.html">REGISTRATION</a></li>
+        </ul>
+    </nav>
+
+    
+    <!-- MAIN -->
+    <main>
+        <!-- SIDE BAR -->
+        <aside>
+            <div class="filter">
+                <form>
+                    <div class="type-of-class">
+                        <h3>Type of Class:</h3>
+                        <input type="checkbox" id="online">
+                        <label for="online">Online Class</label> 
+                        <br>
+                        <input type="checkbox" id="in-person">
+                        <label for="in-person">In-Person Class</label>
+                    </div>
+
+                    <div class="subject">
+                        <h3>Subjects: </h3>
+                        <input type="checkbox" id="english">
+                        <label for="english">English</label>
+                        <br>
+                        <input type="checkbox" id="math">
+                        <label for="math">Math</label>
+                        <br>
+                        <input type="checkbox" id="science">
+                        <label for="science">Science</label>
+                        <br>
+                        <input type="checkbox" id="history">
+                        <label for="history">History</label>
+                        <br>
+                        <input type="checkbox" id="arts">
+                        <label for="arts">Arts</label>
+                        <br>
+                        <input type="checkbox" id="pe">
+                        <label for="pe">P.E.</label>
+                    </div>
+                </form>
+            </div>
+
+        </aside>
+
+        <!-- ARTICLE -->
+        <article>
+            <div class="class-list">
+                <div class="class">
+                    <h3>Class Name</h3>
+                    <p class="class-description">
+                        Class description... Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                        Temporibus earum rem facere, eveniet voluptate magni, corrupti rerum beatae 
+                        laudantium distinctio deleniti sit odit cum quia omnis ea optio. Autem, eius!
+                    </p>
+                    <p class="class-availablity">##/20</p>
+                    <p class="class-day-time">Day and Time</p>
+                    <button class="class-add">Add Class</button>
+                </div>
+
+                <div class="class">
+                    <h3>Class Name</h3>
+                    <p class="class-description">
+                        Class description... Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                        Temporibus earum rem facere, eveniet voluptate magni, corrupti rerum beatae 
+                        laudantium distinctio deleniti sit odit cum quia omnis ea optio. Autem, eius!
+                    </p>
+                    <p class="class-availablity">##/20</p>
+                    <p class="class-day-time">Day and Time</p>
+                    <button class="class-add">Add Class</button>
+                </div>
+
+                <div class="class">
+                    <h3>Class Name</h3>
+                    <p class="class-description">
+                        Class description... Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                        Temporibus earum rem facere, eveniet voluptate magni, corrupti rerum beatae 
+                        laudantium distinctio deleniti sit odit cum quia omnis ea optio. Autem, eius!
+                    </p>
+                    <p class="class-availablity">##/20</p>
+                    <p class="class-day-time">Day and Time</p>
+                    <button class="class-add">Add Class</button>
+                </div>
+            </div>
+        </article>
+    
+        <!-- SECTION -->
+        <section>
+            <div class="selected-classes">
+                <h3>Selected Classes:</h3>
+                <form>
+                    <div class="added-class">
+                        <h4>Class Name</h4>
+                        <p>Day and Time</p>
+                        <button>x</button>
+                    </div>
+                    <div class="added-class">
+                        <h4>Class Name</h4>
+                        <p>Day and Time</p>
+                        <button>x</button>
+                    </div>
+                    <div class="added-class">
+                        <h4>Class Name</h4>
+                        <p>Day and Time</p>
+                        <button>x</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    
+    
+    
+    </main>
+
+
+
+
+    <!-- Footer -->
+    <footer>
+        <!-- LEFT -->
+        <div class="footer-left">
+            <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="dashboard.html">DASHBOARD</a></li>
+            <li><a href="registration.html">REGISTRATION</a></li>
+            </ul>
+        </div>
+
+        <!-- CENTER -->
+        <div class="footer-center">
+            &copy; 2024 Brightview College
+        </div>
+
+        <!-- RIGHT -->
+        <div class="footer-right">
+            <!-- Address -->
+            <address>
+                Brightview College </br>
+                12345 Brightview Drive </br>
+                Austin, Texas 78757 </br>
+            </address>
+        </div>
+
+    </footer>
+</body>
+</html>

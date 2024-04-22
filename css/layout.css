@@ -17,3 +17,15 @@ body {
     margin: 0;
     background-color: #FEFEFE;
 }
+
+aside {
+    width: 25%;
+}
+
+article {
+    width: 45%;
+}
+
+section {
+    width: 25%;
+}

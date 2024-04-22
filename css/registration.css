@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+/* 
+    SchoolRegistationSystem
+
+    Layout Style Sheet
+    Author: Rikki Tomiko Ehrhart
+    Last Updated: 04.20.2024
+
+    Filename: registration.css
+*/
+
+
+/* THREE COL LAYOUT */
+main {
+    display: flex;
+}
+
