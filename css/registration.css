@@ -154,3 +154,9 @@ h4 {
 .registration-button:active {
     box-shadow: none;
 }
+
+
+/* FILTER CHECK BOX STYLES */
+.typeOfClass:checked + label, .subjectBox:checked + label {
+    color: black;
+}

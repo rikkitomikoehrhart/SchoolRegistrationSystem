@@ -20,7 +20,9 @@
     <link href="css/registration.css" rel="stylesheet" />
 
     <!-- LINKED JAVASCRIPT -->
-
+    <script src="javascript/classlist.js"></script>
+    <script src="javascript/filteredclasslist.js"></script>
+    <script src="javascript/selectedclasses.js"></script>
 
 </head>
 <body>
@@ -46,11 +48,11 @@
                     <h3>Type of Class:</h3>
                     <div class="type-of-class">
                         <div class="filter-obj">
-                            <input type="checkbox" id="online">
+                            <input class="typeOfClass" type="checkbox" id="online" checked>
                             <label for="online">Online Class</label> 
                         </div>
                         <div class="filter-obj">
-                            <input type="checkbox" id="in-person">
+                            <input class="typeOfClass" type="checkbox" id="in-person" checked>
                             <label for="in-person">In-Person Class</label>
                         </div>
                     </div>
@@ -58,27 +60,27 @@
                     <h3>Subjects: </h3>
                     <div class="subject">
                         <div class="filter-obj">
-                            <input type="checkbox" id="english">
+                            <input class="subjectBox" type="checkbox" id="english">
                             <label for="english">English</label>
                         </div>
                         <div class="filter-obj">
-                            <input type="checkbox" id="math">
+                            <input class="subjectBox" type="checkbox" id="math">
                             <label for="math">Math</label>
                         </div>
                         <div class="filter-obj">
-                            <input type="checkbox" id="science">
+                            <input class="subjectBox" type="checkbox" id="science">
                             <label for="science">Science</label>
                         </div>
                         <div class="filter-obj">
-                            <input type="checkbox" id="history">
+                            <input class="subjectBox" type="checkbox" id="history">
                             <label for="history">History</label>
                         </div>
                         <div class="filter-obj">
-                            <input type="checkbox" id="arts">
+                            <input class="subjectBox" type="checkbox" id="arts">
                             <label for="arts">Arts</label>
                         </div>
                         <div class="filter-obj">
-                            <input type="checkbox" id="pe">
+                            <input class="subjectBox" type="checkbox" id="pe">
                             <label for="pe">P.E.</label>
                         </div>
                     </div>
@@ -89,48 +91,8 @@
 
         <!-- ARTICLE -->
         <article>
-            <div class="class-list">
-                <div class="class">
-                    <h4>Class Name</h4>
-                    <p class="class-description">
-                        Class description... Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                        Temporibus earum rem facere, eveniet voluptate magni, corrupti rerum beatae 
-                        laudantium distinctio deleniti sit odit cum quia omnis ea optio. Autem, eius!
-                    </p>
-                    <div class="class-stats">
-                        <p class="class-availablity"><span>##</span><span>/</span><span>20</span></p>
-                        <p class="class-day-time">Day and Time</p>
-                        <button class="class-add">Add Class</button>
-                    </div>
-                </div>
+            <div id="class-list">
 
-                <div class="class">
-                    <h4>Class Name</h4>
-                    <p class="class-description">
-                        Class description... Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                        Temporibus earum rem facere, eveniet voluptate magni, corrupti rerum beatae 
-                        laudantium distinctio deleniti sit odit cum quia omnis ea optio. Autem, eius!
-                    </p>
-                    <div class="class-stats">
-                        <p class="class-availablity"><span>##</span><span>/</span><span>20</span></p>
-                        <p class="class-day-time">Day and Time</p>
-                        <button class="class-add">Add Class</button>
-                    </div>
-                </div>
-
-                <div class="class">
-                    <h4>Class Name</h4>
-                    <p class="class-description">
-                        Class description... Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                        Temporibus earum rem facere, eveniet voluptate magni, corrupti rerum beatae 
-                        laudantium distinctio deleniti sit odit cum quia omnis ea optio. Autem, eius!
-                    </p>
-                    <div class="class-stats">
-                        <p class="class-availablity"><span>##</span><span>/</span><span>20</span></p>
-                        <p class="class-day-time">Day and Time</p>
-                        <button class="class-add">Add Class</button>
-                    </div>
-                </div>
             </div>
         </article>
     
