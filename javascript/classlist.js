@@ -64,7 +64,7 @@ var courses =
       online: true,
       available: 20,
       registered: 2, 
-      days: "Tue/Thur",
+      days: "Tue/Thu",
       start: 10,
       end: 12,
    },
