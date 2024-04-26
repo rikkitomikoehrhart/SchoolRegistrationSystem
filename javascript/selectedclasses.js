@@ -78,6 +78,7 @@ function addToSelectedClassList(e) {
     }
 
     // Create the HTML for the inside of the selected Class
+    
     var classHtml = `<h5>` + c.name + `</h5><p>` + c.days + ` @ ` + c.start + `-` + c.end + `</p><button class="xButton">X</button>`
 
     // add id to class

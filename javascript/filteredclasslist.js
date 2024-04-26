@@ -149,9 +149,12 @@ function updateList(classes) {
         classCard.classList.add("class");
 
         // Create the HTML for the class card
-        var classHtml = `<h4>` + classes[i].name + 
-        `</h4> <p class="class-description">` + classes[i].description + `</p><div class="class-stats"><p class="class-availablity"><span>` + classes[i].registered + `</span><span>/</span><span>` + classes[i].available + `</span></p><p class="class-day-time">` + classes[i].days + ` From ` + classes[i].start + ` to ` + classes[i].end + `</p><button class="class-add" id="` + classes[i].id +`">Add Class</button></div>`
-        
+        if (classes[i].registered < classes[i].available) {
+            var classHtml = `<h4>` + classes[i].name + `</h4> <p class="class-description">` + classes[i].description + `</p><div class="class-stats"><p class="class-availablity"><span>` + classes[i].registered + `</span><span>/</span><span>` + classes[i].available + `</span></p><p class="class-day-time">` + classes[i].days + ` From ` + classes[i].start + ` to ` + classes[i].end + `</p><button class="class-add" id="` + classes[i].id +`">Add Class</button></div>`
+        } else {
+            var classHtml = `<h4>` + classes[i].name + `</h4> <p class="class-description">` + classes[i].description + `</p><div class="class-stats"><p class="class-availablity"><span>` + classes[i].registered + `</span><span>/</span><span>` + classes[i].available + `</span></p><p class="class-day-time">` + classes[i].days + ` From ` + classes[i].start + ` to ` + classes[i].end + `</p><button class="class-full" id="` + classes[i].id +`">Class Full</button></div>`
+        }
+    
         // Change the innerHTML of the classCard to include the HTML
         classCard.innerHTML = classHtml
         

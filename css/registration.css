@@ -112,6 +112,19 @@ h4 {
     box-shadow: none;
 }
 
+.class-full {
+    padding: 5px 25px 5px 25px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(207, 2, 2);;
+    color: white;
+    box-shadow: rgb(78, 1, 1) 1px 1px 2px;
+}
+
+.class-full:active {
+    box-shadow: none;
+}
+
 
 /* SELECTED CLASS LIST */
 .added-class {
