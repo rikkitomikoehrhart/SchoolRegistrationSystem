@@ -12,8 +12,6 @@
    This file runs the search classes filter feature on the registration page
 
 */
-
-
 /************* DELCARE GLOBAL VARIABLES *************/
 var online = true;
 var inPerson = true;

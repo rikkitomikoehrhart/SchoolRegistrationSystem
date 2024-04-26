@@ -25,25 +25,25 @@ window.onchange = function() {
 
     // Loop through the buttons and add an onclick function
     for (var i = 0; i < addClassButtons.length; i++) {
-        addClassButtons[i].onclick = function(e) {
+        addClassButtons[i].addEventListener("click", function(e) {
             // Delcare an okToAdd variable
             var okToAdd = okToAddClass(e)
-            
-
+                        
             // If okToAdd is true
             if (okToAdd) {
                 // add class to the list
                 classesList.push(e.target.id)
                 
                 // and add class to selected class list
-                addToSelectedClassList(e)
+                addToSelectedClassList(e);
+                updateRegistered(e.target.id);
 
                 /******* REMOVE CLASSES FROM SELECTED CLASSES LIST *******/
                 removeClass()
             }
-        }
-        
+        })
     }
+
 }
 
 
@@ -119,7 +119,8 @@ function okToAddClass(e) {
             // already selected by the user then change okToAdd to false. 
             if (addedClassTime === classListTime) {
                     okToAdd = false;
-                    window.alert("Class day and time conflicts with a class already selected.")
+                    window.alert("Class day and time conflicts with a class already selected.");
+                    return okToAdd;
             }
         }
     }
@@ -170,7 +171,28 @@ function removeClass() {
 
 
 
+/************* UPDATEREGISTERED FUNCTION *************/
+// update the registered amount
+function updateRegistered(updateClass) {
+    // Grab ids
+    var classesListed = document.getElementsByClassName("class")
+    
 
+    for (var i = 0; i < classesListed.length; i++) {
+        if (classesListed[i].classList[1] === updateClass) {
+            for (var j = 0; j < courses.length; j++) {
+                if (courses[j].id === updateClass) {
+                    courses[j].registered ++;
+                    console.log(courses[j])
+                }
+            }
+        }
+    }
+
+
+
+
+}
 
 
 
@@ -197,5 +219,4 @@ function getHTML(classID, selectedClass) {
     // Return the HTML for the inside of the selected Class
     return `<h5>` + c.name + `</h5><p>` + c.days + ` @ ` + c.start + `-` + c.end + `</p><button class="xButton">X</button>`
 }
-
 
