@@ -34,7 +34,6 @@ window.onchange = function() {
             if (okToAdd) {
                 // add class to the list
                 classesList.push(e.target.id)
-            
                 
                 // and add class to selected class list
                 addToSelectedClassList(e)
@@ -42,14 +41,9 @@ window.onchange = function() {
                 /******* REMOVE CLASSES FROM SELECTED CLASSES LIST *******/
                 removeClass()
             }
-
         }
-
-
-
+        
     }
-
-
 }
 
 
@@ -57,10 +51,8 @@ window.onchange = function() {
 /************* ADDTOSELECTEDCLASSLIST FUNCTION *************/
 // adds the class chosen to the selected class list
 function addToSelectedClassList(e) {
-    // Grab the list of classes that are already in place
+    // Grab the elements
     var listOfClasses = document.getElementsByClassName("added-class");
-
-    // Grab the selected class list
     var selectedClassList = document.getElementById("selected-classes-list");
 
     // Create a div element to be the class selection
@@ -69,41 +61,26 @@ function addToSelectedClassList(e) {
     // give it a class of "class" for styling
     selectedClass.classList.add("added-class");
 
-    // find the course that matches e's id and set it to c
-    var c
-    for (var i = 0; i < courses.length; i++) {
-        if (courses[i].id == e.target.id) {
-            c = courses[i]
-        }
-    }
-
-    // Create the HTML for the inside of the selected Class
-    
-    var classHtml = `<h5>` + c.name + `</h5><p>` + c.days + ` @ ` + c.start + `-` + c.end + `</p><button class="xButton">X</button>`
-
-    // add id to class
-    selectedClass.classList.add(c.id)
-
+    // Get the HTML for the new row 
+    var classHTML = getHTML(e.target.id, selectedClass)
 
     // Assign classHtml to the selected class item
-    selectedClass.innerHTML = classHtml;
+    selectedClass.innerHTML = classHTML;
 
     // Delcare a Boolean ok to match variable
     var okToMatch = true
 
     // Check to see if the html matches a class already listed
     for (var l = 0; l < listOfClasses.length; l++) {
-        if (selectedClass == listOfClasses[l]) {
+        if (selectedClass === listOfClasses[l]) {
             okToMatch = false
-        }        
+        }
     }
 
     if (okToMatch) {
-        // Append the selected class to the list
-        selectedClassList.appendChild(selectedClass);
+        appendClass(selectedClassList, selectedClass)
     }
     
-
     // Add the button to xButton list
     xButtons = document.getElementsByClassName("xButton");
 
@@ -146,6 +123,7 @@ function okToAddClass(e) {
             }
         }
     }
+
 
     return okToAdd
 }
@@ -190,5 +168,34 @@ function removeClass() {
     }
 } 
 
+
+
+
+
+
+
+/************* APPENDCLASS FUNCTION *************/
+function appendClass(selectedList, addClass) {
+        // Append the selected class to the list
+        selectedList.appendChild(addClass);
+}
+
+
+/************* GETHTML FUNCTION ************/
+function getHTML(classID, selectedClass) {
+    // find the course that matches id and set it to c
+    var c
+    for (var i = 0; i < courses.length; i++) {
+        if (courses[i].id == classID) {
+            c = courses[i]
+        }
+    }
+
+    // add id to class
+    selectedClass.classList.add(c.id)
+
+    // Return the HTML for the inside of the selected Class
+    return `<h5>` + c.name + `</h5><p>` + c.days + ` @ ` + c.start + `-` + c.end + `</p><button class="xButton">X</button>`
+}
 
 

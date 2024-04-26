@@ -147,6 +147,7 @@ function updateList(classes) {
 
         // give it a class of "class" for styling
         classCard.classList.add("class");
+        classCard.classList.add(classes[i].id)
 
         // Create the HTML for the class card
         if (classes[i].registered < classes[i].available) {
@@ -178,3 +179,5 @@ function updateUI(online, inPerson, subjects) {
         updateList(classes)
     }
 }
+
+
