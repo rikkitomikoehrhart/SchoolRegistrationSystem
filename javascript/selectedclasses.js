@@ -165,6 +165,20 @@ function removeClass() {
             // Remove that index class from the classesList so it can be added 
             // again if needed
             classesList.splice(indexToRemove, 1);
+
+            // remove one from registered
+            for (var c = 0; c < courses.length; c++) {
+                if (courses[c].id === this.parentNode.classList[1]) {
+                    courses[c].registered -= 1;
+
+                    var element = document.getElementsByClassName(courses[c].id)
+
+                    // Create the HTML for the class card
+                    var classHtml = getClassCardHTML(courses[c])
+
+                    element[0].innerHTML = classHtml;
+                }
+            }
         }
     }
 } 
@@ -176,19 +190,28 @@ function removeClass() {
 function updateRegistered(updateClass) {
     // Grab ids
     var classesListed = document.getElementsByClassName("class")
-    
+
 
     for (var i = 0; i < classesListed.length; i++) {
         if (classesListed[i].classList[1] === updateClass) {
             for (var j = 0; j < courses.length; j++) {
                 if (courses[j].id === updateClass) {
                     courses[j].registered ++;
-                    console.log(courses[j])
+
+                    var element = document.getElementsByClassName(updateClass)
+
+                    // Create the HTML for the class card
+                    var classHtml = getClassCardHTML(courses[j])
+
+                    element[0].innerHTML = classHtml;
+
                 }
             }
         }
     }
 
+    
+    
 
 
 
@@ -220,3 +243,15 @@ function getHTML(classID, selectedClass) {
     return `<h5>` + c.name + `</h5><p>` + c.days + ` @ ` + c.start + `-` + c.end + `</p><button class="xButton">X</button>`
 }
 
+
+/************* GETCLASSCARDHTML FUNCTION ************/
+function getClassCardHTML(c) {
+    // Create the HTML for the class card
+    if (c.registered < c.available) {
+        var classHtml = `<h4>` + c.name + `</h4> <p class="class-description">` + c.description + `</p><div class="class-stats"><p class="class-availablity"><span>` + c.registered + `</span><span>/</span><span>` + c.available + `</span></p><p class="class-day-time">` + c.days + ` From ` + c.start + ` to ` + c.end + `</p><button class="class-add" id="` + c.id +`">Add Class</button></div>`
+    } else {
+        var classHtml = `<h4>` + c.name + `</h4> <p class="class-description">` + c.description + `</p><div class="class-stats"><p class="class-availablity"><span>` + c.registered + `</span><span>/</span><span>` + c.available + `</span></p><p class="class-day-time">` + c.days + ` From ` + c.start + ` to ` + c.end + `</p><button class="class-full" id="` + c.id +`">Class Full</button></div>`
+    }
+
+    return classHtml
+}
