@@ -57,6 +57,18 @@ window.onload = function() {
         }
     }
 
+
+    fetch(`${url}?header=${header}`)
+    .then((response) => response.json())
+    .then(({ data }) => {
+        pulledData = data;
+    })
+    .catch((error) => console.error('!!!!!!!!', error));
+
+
+
+
+
 }
 
 

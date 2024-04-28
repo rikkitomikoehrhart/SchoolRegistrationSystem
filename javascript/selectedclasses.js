@@ -12,9 +12,14 @@
    This file runs the selected classes menu on the side of the registration page
 
 */
+
+
+
 /************* GLOBAL VARIABLES **************/
 var classesList = []
 var xButtons = []
+
+
 
 /************* ON CHANGE WINDOW FUNCTION *************/
 window.onchange = function() {
@@ -43,6 +48,12 @@ window.onchange = function() {
             }
         })
     }
+
+
+
+    /******* REGISTERING FOR CLASSES *******/
+        
+
 
 }
 
@@ -226,6 +237,7 @@ function appendClass(selectedList, addClass) {
 }
 
 
+
 /************* GETHTML FUNCTION ************/
 function getHTML(classID, selectedClass) {
     // find the course that matches id and set it to c
@@ -244,6 +256,7 @@ function getHTML(classID, selectedClass) {
 }
 
 
+
 /************* GETCLASSCARDHTML FUNCTION ************/
 function getClassCardHTML(c) {
     // Create the HTML for the class card
@@ -255,3 +268,5 @@ function getClassCardHTML(c) {
 
     return classHtml
 }
+
+

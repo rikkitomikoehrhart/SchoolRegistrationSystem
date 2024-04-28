@@ -18,7 +18,8 @@
     <link href="css/login.css" rel="stylesheet" />
 
     <!-- LINKED JAVASCRIPT -->
-
+    <script src="javascript/fetchdata.js"></script>
+    <script src="javascript/login.js" async></script>
 
 </head>
 <body>
@@ -31,7 +32,7 @@
                 </div>
             
                 <div class="log-in form">
-                    <form id="login" action="dashboard.html" method="post">
+                    <form id="login">
                         <div class="form-row">
                             <label for="email">E-mail:</label>
                             <input name="email" id="email" type="email" />
@@ -41,8 +42,8 @@
                             <input name="password" id="password" type="password"/>
                         </div>
                         <div class="form-submit">
-                            <input value="Log In" type="submit" />
-                            <input value="Reset" type="reset" />
+                            <input class="noLogIn" value="Log In" type="button" id="loginButton" />
+                            <input class="buttons" value="Reset" type="reset" id="resetButton" />
                         </div>
 
                     </form>
