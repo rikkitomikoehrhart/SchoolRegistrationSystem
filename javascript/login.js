@@ -69,11 +69,10 @@ async function main() {
                 if (!okToLogIn) {
                     window.alert("Password is incorret. Please try again. (Password is case sensitive)")
                 } else {
-                    localStorage.setItem('user', user);
+                    localStorage.setItem('user', JSON.stringify(user))
                     loginButton.disabled = false;
                     loginButton.classList.remove('noLogIn');
                     loginButton.classList.add('buttons');
-                    console.log(localStorage.getItem('user'))
                 }
             }
         }
