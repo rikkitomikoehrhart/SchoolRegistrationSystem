@@ -67,7 +67,6 @@ function updateWeekClasses(student) {
 /************* UPDATEWEEKENDCLASSES FUNCTION *************/
 // Goes through the user.classes and calls the calendarWeekendEntry() function
 function udpateWeekendClasses(student) {
-   console.log("called")
    // check each of the user weekend classes and call the calendarWeekendEntry() function
    if (student.fr8) {
       calendarWeekendEntry(student.fr8, 'fr', 8)

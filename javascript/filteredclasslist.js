@@ -16,7 +16,7 @@
 var online = true;
 var inPerson = true;
 var subjects = [];
-
+const url = `https://script.google.com/macros/s/AKfycbxhq_8hTF33TpHvFeWSrji9w5BbgjzDMjWqceRvbbQaj9eDFSJ_M8dsN1Yjk994XAiR1A/exec`
 
 
 /************* ON LOAD WINDOW FUNCTION *************/
@@ -56,17 +56,6 @@ window.onload = function() {
             updateUI(online, inPerson, subjects)
         }
     }
-
-
-    fetch(`${url}?header=${header}`)
-    .then((response) => response.json())
-    .then(({ data }) => {
-        pulledData = data;
-    })
-    .catch((error) => console.error('!!!!!!!!', error));
-
-
-
 
 
 }
