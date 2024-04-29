@@ -30,6 +30,9 @@ window.onload = function() {
    udpateWeekendClasses(user)
 
 
+   /******* SAVE STUDENT TO LOCAL STORAGE *******/
+   localStorage.setItem('user', JSON.stringify(user));
+
 }
 
 

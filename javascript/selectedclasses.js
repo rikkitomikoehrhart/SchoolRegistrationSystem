@@ -16,9 +16,8 @@
 
 
 /************* GLOBAL VARIABLES **************/
-var classesList = []
-var xButtons = []
 
+var xButtons = []
 
 
 /************* ON CHANGE WINDOW FUNCTION *************/
@@ -40,7 +39,7 @@ window.onchange = function() {
                 classesList.push(e.target.id)
                 
                 // and add class to selected class list
-                addToSelectedClassList(e);
+                addToSelectedClassList(e.target.id);
                 updateRegistered(e.target.id);
 
                 /******* REMOVE CLASSES FROM SELECTED CLASSES LIST *******/
@@ -73,7 +72,7 @@ function addToSelectedClassList(e) {
     selectedClass.classList.add("added-class");
 
     // Get the HTML for the new row 
-    var classHTML = getHTML(e.target.id, selectedClass)
+    var classHTML = getHTML(e, selectedClass)
 
     // Assign classHtml to the selected class item
     selectedClass.innerHTML = classHTML;
