@@ -32,15 +32,16 @@
                 </div>
             
                 <div class="log-in form">
-                    <form id="login" action="php/loginhandler.php" method="post">
+                    <form id="login" action="dashboard.php" method="post">
                         <div class="form-row">
                             <label for="fullname">Full Name:</label>
-                            <input name="fullname" id="fullname" type="fullname" />
+                            <input name="fullname" id="fullname" type="text"/>
                         </div>
                         <div class="form-row">
                             <label for="password">Password:</label>
                             <input name="password" id="password" type="password"/>
                         </div>
+
                         <div class="form-submit">
                             <input class="noLogIn" value="Log In" type="submit" id="loginButton" />
                             <input class="buttons" value="Reset" type="reset" id="resetButton" />

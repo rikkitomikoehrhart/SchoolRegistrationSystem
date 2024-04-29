@@ -20,7 +20,8 @@
     <link href="css/dashboard.css" rel="stylesheet" />
 
     <!-- LINKED JAVASCRIPT -->
-    <script src="javascript/welcomemsg.js"></script>
+    <script src="javascript/fetchdata.js"></script>
+    <script src="javascript/dashboard.js"></script>
 
 
 </head>
@@ -32,7 +33,7 @@
         </div>
         <ul>
             <li><a href="index.html">HOME</a></li>
-            <li><a href="dashboard.html">DASHBOARD</a></li>
+            <li><a href="dashboard.php">DASHBOARD</a></li>
             <li><a href="registration.html">REGISTRATION</a></li>
         </ul>
     </nav>
@@ -72,7 +73,7 @@
         <!-- ARTICLE -->
         <article>
             <div class="welcomemessage">
-                <p>Welcome </p><?php echo .$_POST['fullname']; ?>
+                <p>Welcome <span id="username"><?php echo $_POST['fullname'] ?></span>!</p>
             </div>
             <!-- CURRENT SCHEDULE IN CALENDAR -->
             <div class="course-calendar">

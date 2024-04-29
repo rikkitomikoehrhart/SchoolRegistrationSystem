@@ -12,6 +12,8 @@
    This file checks the username and password
 
 */
+/************* GLOBAL VARIABLES *************/
+var user;
 
 
 /************* ONLOAD WINDOW FUNCTION *************/
@@ -41,6 +43,7 @@ async function main() {
             for (var i = 0; i < students.length; i++) {
                 if (fullNameInput.value == students[i].name) {
                     username = students[i].name;
+                    user = students[i]
                 }
             }
         }
@@ -66,10 +69,11 @@ async function main() {
                 if (!okToLogIn) {
                     window.alert("Password is incorret. Please try again. (Password is case sensitive)")
                 } else {
+                    localStorage.setItem('user', user);
                     loginButton.disabled = false;
                     loginButton.classList.remove('noLogIn');
                     loginButton.classList.add('buttons');
-                    console.log(loginButton)
+                    console.log(localStorage.getItem('user'))
                 }
             }
         }
@@ -77,6 +81,7 @@ async function main() {
     }
 
     resetButton.onclick = function() {
+        user = nil;
         loginButton.disabled = true;
         loginButton.classList.remove("buttons");
         loginButton.classList.add("noLogIn")
