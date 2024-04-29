@@ -174,5 +174,6 @@ main hr {
 }
 
 .calendar-middle {
+    border-radius: 0px;
     background-color: #008dda;
 }
