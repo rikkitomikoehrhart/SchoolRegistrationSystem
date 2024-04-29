@@ -38,9 +38,9 @@ async function main() {
     // Validate email
     emailInput.onchange = function() {
         if (emailInput.value) {
-            for (var i = 0; i < studentEmails.length; i++) {
-                if (emailInput.value == studentEmails[i]) {
-                    username = studentEmails[i]
+            for (var i = 0; i < students.length; i++) {
+                if (emailInput.value == students[i].email) {
+                    username = students[i].email;
                 }
             }
         }
@@ -55,9 +55,9 @@ async function main() {
                 }
 
                 // Validate password:
-                for (var p = 0; p < studentPasswords.length; p++) {
-                    if (username === studentEmails[p]) {
-                        if (password === studentPasswords[p]) {
+                for (var p = 0; p < students.length; p++) {
+                    if (username === students[p].email) {
+                        if (password === students[p].password) {
                             okToLogIn = true
                         }
                     }
