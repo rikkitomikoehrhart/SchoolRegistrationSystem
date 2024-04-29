@@ -149,3 +149,10 @@ main hr {
     font-family: monospace;
     color: #99b1b6;
 }
+
+.welcomemessage {
+    font-family: cursive;
+    color:#014569;
+    font-size: 2rem;
+    margin-top: -50px
+}

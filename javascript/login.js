@@ -21,7 +21,7 @@ window.onload = main()
 /************* MAIN FUNCTION *************/
 async function main() {
     // Grab the log-in elements
-    var emailInput = document.getElementById('email');
+    var fullNameInput = document.getElementById('fullname');
     var passwordInput = document.getElementById('password');
     var loginButton = document.querySelector('#loginButton');
     var resetButton = document.getElementById("resetButton")
@@ -36,17 +36,17 @@ async function main() {
 
 
     // Validate email
-    emailInput.onchange = function() {
-        if (emailInput.value) {
+    fullNameInput.onchange = function() {
+        if (fullNameInput.value) {
             for (var i = 0; i < students.length; i++) {
-                if (emailInput.value == students[i].email) {
-                    username = students[i].email;
+                if (fullNameInput.value == students[i].name) {
+                    username = students[i].name;
                 }
             }
         }
 
         if (username === '') {
-            window.alert("Email is not in our system. Please try again. (Email is case sensitive)")
+            window.alert("Your name is not in our system. Please try again. (Name is case sensitive)")
         } else {
             // Grab password
             passwordInput.onchange = function() {
@@ -56,7 +56,7 @@ async function main() {
 
                 // Validate password:
                 for (var p = 0; p < students.length; p++) {
-                    if (username === students[p].email) {
+                    if (username === students[p].name) {
                         if (password === students[p].password) {
                             okToLogIn = true
                         }
@@ -69,6 +69,7 @@ async function main() {
                     loginButton.disabled = false;
                     loginButton.classList.remove('noLogIn');
                     loginButton.classList.add('buttons');
+                    console.log(loginButton)
                 }
             }
         }
