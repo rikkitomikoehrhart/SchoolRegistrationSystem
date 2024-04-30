@@ -20,6 +20,7 @@
     <link href="css/dashboard.css" rel="stylesheet" />
 
     <!-- LINKED JAVASCRIPT -->
+    <script src="/javascript/objects.js"></script>
     <script src="/javascript/classlist.js"></script>
     <script src="/javascript/dashboard.js"></script>
 
