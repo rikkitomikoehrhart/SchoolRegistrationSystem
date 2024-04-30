@@ -30,31 +30,31 @@ class Course {
 
 
 
-/************* GLOBAL VARIABLES **************/
-const courseUrl = `https://script.google.com/macros/s/AKfycbwECpYfETqlDGakb5M-p5wfS5SwQHAGkdxZDCQjOvOlleWI7pE2__qQPPqXvtZJrfavCQ/exec`
-var courses = [];
+// /************* GLOBAL VARIABLES **************/
+// const courseUrl = `https://script.google.com/macros/s/AKfycbwECpYfETqlDGakb5M-p5wfS5SwQHAGkdxZDCQjOvOlleWI7pE2__qQPPqXvtZJrfavCQ/exec`
+// var courses = [];
 
-let courseSheetData = [
-    fetch(`${courseUrl}`)
-];
-
-
-/************* ONLOAD WINDOW FUNCTION *************/
-window.onload = getCourseData()
+// let courseSheetData = [
+//     fetch(`${courseUrl}`)
+// ];
 
 
-/************* MAIN FUNCTION *************/
-async function getCourseData() {
+// /************* ONLOAD WINDOW FUNCTION *************/
+// window.onload = getCourseData()
+
+
+// /************* MAIN FUNCTION *************/
+// async function getCourseData() {
     
-    // Pull the data from Google Sheets
-    const response = await Promise.all(courseSheetData);
-    const data = await Promise.all(response.map((item) => {
-        return item.json();
-    }))
+//     // Pull the data from Google Sheets
+//     const response = await Promise.all(courseSheetData);
+//     const data = await Promise.all(response.map((item) => {
+//         return item.json();
+//     }))
 
-    for (var i = 1; i < data[0].length; i++) {
-        var courseObj = new Course(data[0][i][0], data[0][i][1], data[0][i][2], data[0][i][3], data[0][i][4], data[0][i][5], data[0][i][6], data[0][i][7], data[0][i][8])
-        courses.push(courseObj);
-    }
+//     for (var i = 1; i < data[0].length; i++) {
+//         var courseObj = new Course(data[0][i][0], data[0][i][1], data[0][i][2], data[0][i][3], data[0][i][4], data[0][i][5], data[0][i][6], data[0][i][7], data[0][i][8])
+//         courses.push(courseObj);
+//     }
 
-}
+// }

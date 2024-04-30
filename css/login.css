@@ -28,7 +28,15 @@ body {
     padding: 10px 50px 50px 50px;
     border-radius: 25px;
     box-shadow: #008dda 0px 0px 25px;
+    opacity: 0;
+    transition: opacity 1s; 
 }
+  
+.fadeIn {
+    opacity: 1;
+}
+
+
 
 /* LOGIN ELEMENTS */
 .login-title h1 {
