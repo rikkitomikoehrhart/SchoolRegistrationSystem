@@ -4,12 +4,12 @@
    SchoolRegistationSystem
 
    Author: Rikki Tomiko Ehrhart
-   Date:   04.28.24
+   Date:   04.30.24
 
    Filename: fetchstudentdata.js
 
    =========
-   This file fetchs the data
+   This file fetches the course data
 
 */
 /************* STUDENT CLASS *************/
@@ -34,20 +34,20 @@ class Course {
 const courseUrl = `https://script.google.com/macros/s/AKfycbwECpYfETqlDGakb5M-p5wfS5SwQHAGkdxZDCQjOvOlleWI7pE2__qQPPqXvtZJrfavCQ/exec`
 var courses = [];
 
-let sheetData = [
+let courseSheetData = [
     fetch(`${courseUrl}`)
 ];
 
 
 /************* ONLOAD WINDOW FUNCTION *************/
-window.onload = main()
+window.onload = getCourseData()
 
 
 /************* MAIN FUNCTION *************/
-async function main() {
+async function getCourseData() {
     
     // Pull the data from Google Sheets
-    const response = await Promise.all(sheetData);
+    const response = await Promise.all(courseSheetData);
     const data = await Promise.all(response.map((item) => {
         return item.json();
     }))
@@ -56,7 +56,5 @@ async function main() {
         var courseObj = new Course(data[0][i][0], data[0][i][1], data[0][i][2], data[0][i][3], data[0][i][4], data[0][i][5], data[0][i][6], data[0][i][7], data[0][i][8])
         courses.push(courseObj);
     }
-
-    console.log("completed")
 
 }

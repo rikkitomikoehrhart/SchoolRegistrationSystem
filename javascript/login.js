@@ -17,11 +17,25 @@ var user;
 
 
 /************* ONLOAD WINDOW FUNCTION *************/
-window.onload = main()
+window.onload = function() {
+    /******* LOGGIN BOX HIDDEN UNTIL AFTER DATA IS LOADED *******/
+    // Grab the login container:
+    var loginBox = document.getElementById('login-box')
+    loginBox.style.opacity = "0";
 
 
-/************* MAIN FUNCTION *************/
-async function main() {
+    var studentArray = getData()
+
+    // console.log(studentArray)
+
+
+
+
+    /******** LOGGIN REAPPEARS *******/
+
+
+
+    /******* LOGIN FUNCTIONALITY *******/
     // Grab the log-in elements
     var fullNameInput = document.getElementById('fullname');
     var passwordInput = document.getElementById('password');
@@ -90,4 +104,17 @@ async function main() {
 
 
 
+}
+
+
+async function getData() {
+    const studentDataArray = await getStudentData();
+    const courseDataArray = await getCourseData();
+
+    console.log(studentDataArray)
+
+    localStorage.setItem('studentDataArray', JSON.stringify(studentDataArray));
+    localStorage.setItem('courseDataArray', JSON.stringify(courseDataArray));
+
+    return studentDataArray
 }
