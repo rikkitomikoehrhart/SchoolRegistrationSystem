@@ -2,7 +2,7 @@
 A web application for a school registration system that allows students to register for courses and view their schedules -- this is my final project for my Beginner Web Programming Class, Spring 2024.
 ---
 # Table of Contents
-- [Testing Environment] (httpps://github.com/rikkitomikoehrhart/SchoolRegistrationSystem?tab=readme-ov-filt#testing-environment)
+- [Testing Environment](https://github.com/rikkitomikoehrhart/SchoolRegistrationSystem?tab=readme-ov-file#testing-environment)
 - [Project Requirements](https://github.com/rikkitomikoehrhart/SchoolRegistrationSystem?tab=readme-ov-file#project-requirements)
   - [User Authentication](https://github.com/rikkitomikoehrhart/SchoolRegistrationSystem?tab=readme-ov-file#user-authentication)
   - [Student Registration](https://github.com/rikkitomikoehrhart/SchoolRegistrationSystem?tab=readme-ov-file#student-registration)
