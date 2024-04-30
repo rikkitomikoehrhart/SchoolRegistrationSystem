@@ -171,7 +171,6 @@ function updateList(classes) {
         classCard.classList.add(classes[i].id)
 
         // Create the HTML for the class card
-        console.log(classes[i].registered)
         if (classes[i].registered < 20) {
             var classHtml = `<h4>` + classes[i].name + `</h4> <p class="class-description">` + classes[i].description + `</p><div class="class-stats"><p class="class-availablity"><span>` + classes[i].registered + `</span><span>/</span><span>20</span></p><p class="class-day-time">` + classes[i].days + ` From ` + classes[i].start + ` to ` + classes[i].end + `</p><button class="class-add" id="` + classes[i].id +`">Add Class</button></div>`
         } else {

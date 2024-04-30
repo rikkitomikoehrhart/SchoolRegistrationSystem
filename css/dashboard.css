@@ -123,9 +123,11 @@ main hr {
     margin-top: 25px;
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .course-card {
+    margin: 25px 0 0 0;
     width: 30%;
     background-color: #f7eedd;
     border-radius: 10px;
@@ -152,10 +154,12 @@ main hr {
 
 .welcomemessage {
     display: flex;
-    font-family: cursive;
-    color:#014569;
-    font-size: 2rem;
-    margin-top: -50px
+    font-family: sans-serif;
+    color: #D84315;
+    font-size: 2.25rem;
+    margin-top: -100px;
+    margin-left: -100px;
+    text-shadow: #014569 1px 1px 0px;
 }
 
 .calendar-top {

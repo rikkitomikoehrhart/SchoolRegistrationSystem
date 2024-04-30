@@ -20,14 +20,16 @@ var courses;
 
 /************* ONLOAD WINDOW FUNCTION *************/
 window.onload = function() {
-   /******* GRABBING THE USER *******/
+   /******* GRABBING THE USER AND COURSE DATA *******/
    // Grab the student from local storage
-   var localUserData = localStorage.getItem('user')
+   var localUserData = localStorage.getItem('user');
    user = JSON.parse(localUserData)
-   console.log(user)
+   
+
    // Grab the classes from local storage
    var localClassesData = localStorage.getItem('courses')
    courses = JSON.parse(localClassesData)
+
 
 
    /******* SET CALENDAR *******/
@@ -36,10 +38,18 @@ window.onload = function() {
    udpateWeekendClasses(user)
 
 
+
    /******* SAVE STUDENT AND COURSES TO LOCAL STORAGE *******/
    localStorage.setItem('user', JSON.stringify(user));
-   localStorage.setItem('courses', JSON.stringify(courses))
+   localStorage.setItem('courses', JSON.stringify(courses));
 
+
+   /******* SET CLASS CARDS *******/
+   // Grab the user's personal class list
+   var userClassesArray = getClassArray(user);
+
+   // Fill out the Classes cards list
+   addClassCards(userClassesArray);
 }
 
 
@@ -174,3 +184,97 @@ function calendarWeekendEntry(course, day, time) {
    thirdhour.classList.add("calendar-middle")
    fourthhour.classList.add("calendar-bottom")
 }
+
+
+/************* GETCLASSESARRAY FUNCTION *************/
+// returns the array of classes that the user has
+function getClassArray(student) {
+   // Declare variables
+   var courseIdArray = []
+   var coursesArray = []
+
+   // If student.time has a class in it, add that id to the courseIdArray
+   if (student.mw8) {
+      courseIdArray.push(student.mw8)
+   }
+   if (student.mw10) {
+      courseIdArray.push(student.mw10)
+   }
+   if (student.mw1) {
+      courseIdArray.push(student.mw1)
+   }
+   if (student.mw3) {
+      courseIdArray.push(student.mw3)
+   }
+   if (student.tt8) {
+      courseIdArray.push(student.tt8)
+   }
+   if (student.tt10) {
+      courseIdArray.push(student.tt10)
+   }
+   if (student.tt1) {
+      courseIdArray.push(student.tt1)
+   }
+   if (student.tt3) {
+      courseIdArray.push(student.tt3)
+   }
+   if (student.fr8) {
+      courseIdArray.push(student.fr8)
+   }
+   if (student.fr1) {
+      courseIdArray.push(student.fr1)
+   }
+   if (student.st8) {
+      courseIdArray.push(student.st8)
+   }
+   if (student.st1) {
+      courseIdArray.push(student.st1)
+   }
+   if (student.su8) {
+      courseIdArray.push(student.su8)
+   }
+   if (student.su1) {
+      courseIdArray.push(student.su1)
+   }
+
+   // Loop through the array and find the course to add to the coursesArray
+   for (var i = 0; i < courseIdArray.length; i++) {
+      for (var c = 0; c < courses.length; c++) {
+         if (courseIdArray[i] === courses[c].id) {
+            coursesArray.push(courses[c])
+         }
+      }
+   }
+
+   return coursesArray
+}
+
+/************* ADDCLASSESCARDS FUNCTION *************/
+// returns the array of classes that the user has
+function addClassCards(c) {
+   // Grab the Classes gallery 
+   var courseGallery = document.getElementById('course-gallery');
+
+   // Loop through the array and add the classes:
+   for (var i = 0; i < c.length; i++) {
+      // Create the classCard element
+      var classCard = document.createElement("div");
+
+      // Add the class "course-card" to the classCard element
+      classCard.classList.add("course-card");
+
+      // Create the HTML for the card:
+      var classCardHtml = `<h5>${c[i].name}</h5><p>${c[i].description}</p><br><p class="datetime">${c[i].days} @ ${c[i].start}-${c[i].end}</p>`;
+
+      // Add the card HTML to the classCard
+      classCard.innerHTML = classCardHtml;
+
+      // Append the classCard to the courseGallery element
+      courseGallery.appendChild(classCard)
+
+
+   }
+
+
+}
+

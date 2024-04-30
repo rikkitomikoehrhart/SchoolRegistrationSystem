@@ -131,6 +131,9 @@ function main() {
                     // Now the name entered belongs to a student and the password for 
                     // that student is correct, so it is okToAdd:
                     okToLogIn = true;
+
+                    saveToLocalStorage()
+                    console.log(localStorage.getItem('user'))
                 } else {
                     // if it does not, set password to empty string
                     password = '';
@@ -152,8 +155,6 @@ function main() {
                 if (!okToLogIn) {
                     window.alert("Password is incorret. Please try again. (Password is case sensitive)")
                     passwordInput.value = '';
-                } else {
-                    saveToLocalStorage()
                 }
             }
         }
@@ -217,6 +218,6 @@ async function getStudentData() {
 *                     LOCAL STORAGE FUNCTION                        *
 ********************************************************************/
 function saveToLocalStorage() {
-    localStorage.setItem('courses', JSON.stringify(courses))
-    localStorage.setItem('user', JSON.stringify(user))
+    localStorage.setItem('courses', JSON.stringify(courses));
+    localStorage.setItem('user', JSON.stringify(user));
 }

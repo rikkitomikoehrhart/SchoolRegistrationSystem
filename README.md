@@ -27,11 +27,17 @@ In order to test the code in the test server:
 2. Click on the **Codespaces** tab
 3. Click on the code space labeled **"PHP Test Environment"**
 4. Once loaded in the terminal enter the following code and press enter:
-`sudo sed -i 's/Listen 80$//' /etc/apache2/ports.conf`
+```
+sudo sed -i 's/Listen 80$//' /etc/apache2/ports.conf
+```
 5. Then enter the following code and press enter:
-`sudo sed -i 's/<VirtualHost \*:80>/ServerName 127.0.0.1\n<VirtualHost \*:8080>/' /etc/apache2/sites-enabled/000-default.conf`
+```
+sudo sed -i 's/<VirtualHost \*:80>/ServerName 127.0.0.1\n<VirtualHost \*:8080>/' /etc/apache2/sites-enabled/000-default.conf
+```
 6. Then enter the following code and press enter:
-`apache2ctl start`
+```
+apache2ctl start
+```
 7. After a few seconds a pop up should appear in the bottom right hand corner letting you know that the server is live -- click the **Open in Browser** button and a new tab will appear with the test site. 
 
 

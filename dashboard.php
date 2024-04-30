@@ -206,25 +206,10 @@
                 <div class="course-list-title">
                     <h1>Registered Courses</h1>
                 </div>
-                <div class="course-gallery">
-                    <div class="course-card">
-                        <h5>Class Title</h5>
-                        <p>Course Description</p>
-                        <br>
-                        <p class="datetime">Course Date and Time</p>
-                    </div>
-                    <div class="course-card">
-                        <h5>Class Title</h5>
-                        <p>Course Description</p>
-                        <br>
-                        <p class="datetime">Course Date and Time</p>
-                    </div>
-                    <div class="course-card">
-                        <h5>Class Title</h5>
-                        <p>Course Description</p>
-                        <br>
-                        <p class="datetime">Course Date and Time</p>
-                    </div>
+                <div class="course-gallery" id="course-gallery">
+
+
+                
                 </div>
             </div>
         </article>
