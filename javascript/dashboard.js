@@ -15,14 +15,20 @@
 
 /************* GLOBAL VARIABLES *************/
 var user;
+var courses;
 
 
 /************* ONLOAD WINDOW FUNCTION *************/
 window.onload = function() {
    /******* GRABBING THE USER *******/
-   // // Grab the student from local storage
-   var localData = localStorage.getItem('user')
-   user = JSON.parse(localData)
+   // Grab the student from local storage
+   var localUserData = localStorage.getItem('user')
+   user = JSON.parse(localUserData)
+   console.log(user)
+   // Grab the classes from local storage
+   var localClassesData = localStorage.getItem('courses')
+   courses = JSON.parse(localClassesData)
+
 
    /******* SET CALENDAR *******/
    // Update Classes
@@ -30,8 +36,9 @@ window.onload = function() {
    udpateWeekendClasses(user)
 
 
-   /******* SAVE STUDENT TO LOCAL STORAGE *******/
+   /******* SAVE STUDENT AND COURSES TO LOCAL STORAGE *******/
    localStorage.setItem('user', JSON.stringify(user));
+   localStorage.setItem('courses', JSON.stringify(courses))
 
 }
 
