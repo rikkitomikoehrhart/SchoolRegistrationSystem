@@ -4,7 +4,7 @@
    SchoolRegistationSystem
 
    Author: Rikki Tomiko Ehrhart
-   Date:   04.29.24
+   Date:   04.30.24
 
    Filename: dashboard.js
 
@@ -13,11 +13,15 @@
 
 */
 
-/************* GLOBAL VARIABLES *************/
+/******************************************************************** 
+*                        GLOBAL VARIABLES                           *
+********************************************************************/
 var user;
 var courses;
 
-
+/******************************************************************** 
+*                     WINDOW ONLOAD FUNCTION                        *
+********************************************************************/
 /************* ONLOAD WINDOW FUNCTION *************/
 window.onload = function() {
    /******* GRABBING THE USER AND COURSE DATA *******/
@@ -53,6 +57,11 @@ window.onload = function() {
 }
 
 
+
+
+/******************************************************************** 
+*                       CALENDAR FUNCTIONS                          *
+********************************************************************/
 /************* UPDATEWEEKCLASSES FUNCTION *************/
 // Goes through the user.classes and calls the calendarEntry() function
 function updateWeekClasses(student) {
@@ -186,6 +195,11 @@ function calendarWeekendEntry(course, day, time) {
 }
 
 
+
+
+/******************************************************************** 
+*                     CLASS GALLERY FUNCTIONS                       *
+********************************************************************/
 /************* GETCLASSESARRAY FUNCTION *************/
 // returns the array of classes that the user has
 function getClassArray(student) {
@@ -246,6 +260,12 @@ function getClassArray(student) {
       }
    }
 
+   
+   // Save the coursesArray to localStorage so that the registration page can access it.
+   localStorage.setItem("coursesArray", JSON.stringify(coursesArray));
+
+
+   // return the array
    return coursesArray
 }
 
