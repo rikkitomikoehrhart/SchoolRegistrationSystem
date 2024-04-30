@@ -25,7 +25,7 @@
 In order to test the code in the test server:
 1. Click on the Green **< > Code** button. 
 2. Click on the **Codespaces** tab
-3. Click on the available code space
+3. Click on the code space labeled **"PHP Test Environment"**
 4. Once loaded in the terminal enter the following code and press enter:
 `sudo sed -i 's/Listen 80$//' /etc/apache2/ports.conf`
 5. Then enter the following code and press enter:

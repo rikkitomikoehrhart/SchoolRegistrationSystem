@@ -51,93 +51,121 @@ window.onload = function() {
     getCourseData()
         .then(() => getStudentData())
         .then(() => saveToLocalStorage())
-        .then(() => main())
-
-
-
-    /******** LOGGIN REAPPEARS *******/
-
-
-
-    // /******* LOGIN FUNCTIONALITY *******/
-    // // Grab the log-in elements
-    // var fullNameInput = document.getElementById('fullname');
-    // var passwordInput = document.getElementById('password');
-    // var loginButton = document.querySelector('#loginButton');
-    // var resetButton = document.getElementById("resetButton")
-
-    // // Declare some variables
-    // var username = '';
-    // var password = '';
-    // var okToLogIn = false;
-
-    // // Disable loginButton
-    // loginButton.disabled = true;
-
-
-    // // Validate email
-    // fullNameInput.onchange = function() {
-    //     if (fullNameInput.value) {
-    //         for (var i = 0; i < students.length; i++) {
-    //             if (fullNameInput.value == students[i].name) {
-    //                 username = students[i].name;
-    //                 user = students[i]
-    //             }
-    //         }
-    //     }
-
-    //     if (username === '') {
-    //         window.alert("Your name is not in our system. Please try again. (Name is case sensitive)")
-    //     } else {
-    //         // Grab password
-    //         passwordInput.onchange = function() {
-    //             if (passwordInput.value) {
-    //                 password = passwordInput.value
-    //             }
-
-    //             // Validate password:
-    //             for (var p = 0; p < students.length; p++) {
-    //                 if (username === students[p].name) {
-    //                     if (password === students[p].password) {
-    //                         okToLogIn = true
-    //                     }
-    //                 }
-    //             }
-
-    //             if (!okToLogIn) {
-    //                 window.alert("Password is incorret. Please try again. (Password is case sensitive)")
-    //             } else {
-    //                 saveToLocalStorage()
-    //                 loginButton.disabled = false;
-    //                 loginButton.classList.remove('noLogIn');
-    //                 loginButton.classList.add('buttons');
-    //             }
-    //         }
-    //     }
-
-    // }
-
-    // resetButton.onclick = function() {
-    //     user = nil;
-    //     loginButton.disabled = true;
-    //     loginButton.classList.remove("buttons");
-    //     loginButton.classList.add("noLogIn")
-    // }
-
-
-
-
+        .then(() => main());
 
 }
+
 
 /******************************************************************** 
 *                       MAIN FUNCTIONALITY                          *
 ********************************************************************/
 function main() {
-    console.log("main called")
-
     /******** LOGGIN REAPPEARS *******/
     loginBox.classList.toggle('fadeIn');
+
+
+
+    /******* LOGIN ELEMENTS *******/
+    // Grab the log-in elements
+    var fullNameInput = document.getElementById('fullname');
+    var passwordInput = document.getElementById('password');
+    var loginButton = document.querySelector('#loginButton');
+    var resetButton = document.getElementById("resetButton");
+    var loginForm = document.getElementById("login");
+
+
+    // Declare some variables
+    var username = '';
+    var password = '';
+    var okToLogIn = false;
+
+
+    // Disable login elements
+    loginButton.disabled = true;
+    loginButton.style.opacity = .25;
+    passwordInput.disabled = true;
+    passwordInput.style.opacity = .25;
+
+
+    /******* VALIDATE NAME *******/
+    fullNameInput.onchange = function() {
+        // Checks if fullname has something typed inside
+        if (fullNameInput.value) {
+            // Loop through the students array and checks if the inputed name 
+            // equals any of the student's name
+            for (var i = 0; i < students.length; i++) {
+                if (fullNameInput.value == students[i].name) {
+                    // if yes, assign the student's name to username and the student object to user
+                    username = students[i].name;
+                    user = students[i]
+                }
+            }
+        }
+
+        // Checks if username is empty (name entered is not in the students array)
+        if (username === '') {
+            // if username is empty then name entered is incorrect
+            window.alert("Your name is not in our system. Please try again. (Name is case sensitive)")
+
+            // resets the form 
+            loginForm.reset();
+        } else {
+            // Name user entered is a valid name, enable the password input:
+            passwordInput.disabled = false;
+            passwordInput.style.opacity = 1;
+
+            // Grab password
+            passwordInput.onkeyup = function() {
+                // Checks on each key stroke if the password equals the user's password
+                if (passwordInput.value === user.password) {
+                    // if it does, enable the login button
+                    loginButton.disabled = false;
+                    loginButton.style.opacity = 1;
+                    loginButton.classList.remove('noLogIn');
+                    loginButton.classList.add('buttons');
+
+
+                    // set the value of password to what the user has entered
+                    password = passwordInput.value;
+
+                    // Now the name entered belongs to a student and the password for 
+                    // that student is correct, so it is okToAdd:
+                    okToLogIn = true;
+                } else {
+                    // if it does not, set password to empty string
+                    password = '';
+
+                    // make sure that the login button is disabled
+                    loginButton.disabled = true;
+                    loginButton.style.opacity = .25;
+                    loginButton.classList.remove('buttons');
+                    loginButton.classList.add('noLogIn');
+
+                    // ^ this should cover it if a user enters the correct password but
+                    // then adds extra character(s) and makes it incorrect.
+                    okToLogIn = false;
+                }
+
+            }
+
+            passwordInput.onfocusout = function() {
+                if (!okToLogIn) {
+                    window.alert("Password is incorret. Please try again. (Password is case sensitive)")
+                    passwordInput.value = '';
+                } else {
+                    saveToLocalStorage()
+                }
+            }
+        }
+
+    }
+
+    resetButton.onclick = function() {
+        user = nil;
+        loginButton.disabled = true;
+        loginButton.classList.remove("buttons");
+        loginButton.classList.add("noLogIn")
+    }
 
 
 }
@@ -189,7 +217,6 @@ async function getStudentData() {
 *                     LOCAL STORAGE FUNCTION                        *
 ********************************************************************/
 function saveToLocalStorage() {
-    localStorage.setItem('students', JSON.stringify(students))
     localStorage.setItem('courses', JSON.stringify(courses))
     localStorage.setItem('user', JSON.stringify(user))
 }
