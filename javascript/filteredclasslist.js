@@ -13,14 +13,35 @@
 
 */
 /************* DELCARE GLOBAL VARIABLES *************/
+var student;
+var classList = []
 var online = true;
 var inPerson = true;
 var subjects = [];
 
 
-
 /************* ON LOAD WINDOW FUNCTION *************/
 window.onload = function() {
+    /******* POPULATE SAVED DATA *******/
+    // Grab student from local storage
+    var localData = localStorage.getItem('user')
+    student = JSON.parse(localData)
+
+    // Populate classList based on classes:
+    classList = populateClassList(student)
+
+    // add to selected class list (waits a few seconds for the fetch data to populate):
+    setTimeout(function() {
+        for (var c = 0; c < classList.length; c++) {
+            addToSelectedClassList(classList[c])
+        }
+    }, 4000);
+
+        // 
+
+    
+    console.log("hey")
+
     // Grab the filter checkboxes
     var typeOfClassBoxes = document.getElementsByClassName("typeOfClass");
     var subjectBoxes = document.getElementsByClassName("subjectBox");
@@ -56,17 +77,6 @@ window.onload = function() {
             updateUI(online, inPerson, subjects)
         }
     }
-
-
-    fetch(`${url}?header=${header}`)
-    .then((response) => response.json())
-    .then(({ data }) => {
-        pulledData = data;
-    })
-    .catch((error) => console.error('!!!!!!!!', error));
-
-
-
 
 
 }
@@ -111,6 +121,7 @@ function clearResults() {
 function getClasses(online, inPerson, subjects) {
     // Delcare an empty array to add values to or to return empty
     var listOfClasses = []
+    console.log(courses)
 
     // Loop through the subjects array of the wanted subjects
     for (var i = 0; i < subjects.length; i++) {
@@ -160,10 +171,11 @@ function updateList(classes) {
         classCard.classList.add(classes[i].id)
 
         // Create the HTML for the class card
-        if (classes[i].registered < classes[i].available) {
-            var classHtml = `<h4>` + classes[i].name + `</h4> <p class="class-description">` + classes[i].description + `</p><div class="class-stats"><p class="class-availablity"><span>` + classes[i].registered + `</span><span>/</span><span>` + classes[i].available + `</span></p><p class="class-day-time">` + classes[i].days + ` From ` + classes[i].start + ` to ` + classes[i].end + `</p><button class="class-add" id="` + classes[i].id +`">Add Class</button></div>`
+        console.log(classes[i].registered)
+        if (classes[i].registered < 20) {
+            var classHtml = `<h4>` + classes[i].name + `</h4> <p class="class-description">` + classes[i].description + `</p><div class="class-stats"><p class="class-availablity"><span>` + classes[i].registered + `</span><span>/</span><span>20</span></p><p class="class-day-time">` + classes[i].days + ` From ` + classes[i].start + ` to ` + classes[i].end + `</p><button class="class-add" id="` + classes[i].id +`">Add Class</button></div>`
         } else {
-            var classHtml = `<h4>` + classes[i].name + `</h4> <p class="class-description">` + classes[i].description + `</p><div class="class-stats"><p class="class-availablity"><span>` + classes[i].registered + `</span><span>/</span><span>` + classes[i].available + `</span></p><p class="class-day-time">` + classes[i].days + ` From ` + classes[i].start + ` to ` + classes[i].end + `</p><button class="class-full" id="` + classes[i].id +`">Class Full</button></div>`
+            var classHtml = `<h4>` + classes[i].name + `</h4> <p class="class-description">` + classes[i].description + `</p><div class="class-stats"><p class="class-availablity"><span>` + classes[i].registered + `</span><span>/</span><span>20</span></p><p class="class-day-time">` + classes[i].days + ` From ` + classes[i].start + ` to ` + classes[i].end + `</p><button class="class-full" id="` + classes[i].id +`">Class Full</button></div>`
         }
     
         // Change the innerHTML of the classCard to include the HTML
@@ -191,3 +203,52 @@ function updateUI(online, inPerson, subjects) {
 }
 
 
+/************* POPULATECLASSLIST FUNCTION  *************/
+function populateClassList(s) {
+    var classArray = []
+
+    if (s.mw8) {
+        classArray.push(s.mw8)
+    }
+    if (s.mw10) {
+        classArray.push(s.mw10)
+    }
+    if (s.mw1) {
+        classArray.push(s.mw1)
+    }
+    if (s.mw3) {
+        classArray.push(s.mw3)
+    }
+    if (s.tt8) {
+        classArray.push(s.tt8)
+    }
+    if (s.tt10) {
+        classArray.push(s.tt10)
+    }
+    if (s.tt1) {
+        classArray.push(s.tt1)
+    }
+    if (s.tt3) {
+        classArray.push(s.tt3)
+    }
+    if (s.fr8) {
+        classArray.push(s.fr8)
+    }
+    if (s.fr1) {
+        classArray.push(s.fr1)
+    }
+    if (s.st8) {
+        classArray.push(s.st8)
+    }
+    if (s.st1) {
+        classArray.push(s.st1)
+    }
+    if (s.su8) {
+        classArray.push(s.su8)
+    }
+    if (s.su1) {
+        classArray.push(s.su1)
+    }
+
+    return classArray
+}

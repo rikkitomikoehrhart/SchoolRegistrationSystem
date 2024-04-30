@@ -157,3 +157,23 @@ main hr {
     font-size: 2rem;
     margin-top: -50px
 }
+
+.calendar-top {
+    border-radius: 10px 10px 0 0;
+    background-color: #008dda;
+    color: white;
+    text-align: center;
+    font-size: .7rem;
+    letter-spacing: 2px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;   
+}
+
+.calendar-bottom {
+    border-radius: 0 0 10px 10px;
+    background-color: #008dda;
+}
+
+.calendar-middle {
+    border-radius: 0px;
+    background-color: #008dda;
+}
