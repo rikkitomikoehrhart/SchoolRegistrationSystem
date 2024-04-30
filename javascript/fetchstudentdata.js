@@ -6,7 +6,7 @@
    Author: Rikki Tomiko Ehrhart
    Date:   04.28.24
 
-   Filename: fetchdata.js
+   Filename: fetchstudentdata.js
 
    =========
    This file fetchs the data

@@ -23,7 +23,7 @@ var xButtons = []
 /************* ON CHANGE WINDOW FUNCTION *************/
 window.onchange = function() {
     /******* ADD CLASSES TO SELECTED CLASSES LIST *******/
-    
+
     // Grab the add class buttons
     var addClassButtons = document.getElementsByClassName("class-add");
 
@@ -73,6 +73,7 @@ function addToSelectedClassList(e) {
 
     // Get the HTML for the new row 
     var classHTML = getHTML(e, selectedClass)
+    console.log(classHTML)
 
     // Assign classHtml to the selected class item
     selectedClass.innerHTML = classHTML;
@@ -180,6 +181,7 @@ function removeClass() {
             for (var c = 0; c < courses.length; c++) {
                 if (courses[c].id === this.parentNode.classList[1]) {
                     courses[c].registered -= 1;
+                    updateCoursesGoogleSheet(courses[c])
 
                     var element = document.getElementsByClassName(courses[c].id)
 
@@ -207,6 +209,7 @@ function updateRegistered(updateClass) {
             for (var j = 0; j < courses.length; j++) {
                 if (courses[j].id === updateClass) {
                     courses[j].registered ++;
+                    updateCoursesGoogleSheet(courses[j])
 
                     var element = document.getElementsByClassName(updateClass)
 
@@ -242,8 +245,9 @@ function getHTML(classID, selectedClass) {
     // find the course that matches id and set it to c
     var c
     for (var i = 0; i < courses.length; i++) {
-        if (courses[i].id == classID) {
+        if (courses[i].id === classID) {
             c = courses[i]
+
         }
     }
 
@@ -259,13 +263,38 @@ function getHTML(classID, selectedClass) {
 /************* GETCLASSCARDHTML FUNCTION ************/
 function getClassCardHTML(c) {
     // Create the HTML for the class card
-    if (c.registered < c.available) {
-        var classHtml = `<h4>` + c.name + `</h4> <p class="class-description">` + c.description + `</p><div class="class-stats"><p class="class-availablity"><span>` + c.registered + `</span><span>/</span><span>` + c.available + `</span></p><p class="class-day-time">` + c.days + ` From ` + c.start + ` to ` + c.end + `</p><button class="class-add" id="` + c.id +`">Add Class</button></div>`
+    if (c.registered < 20) {
+        var classHtml = `<h4>` + c.name + `</h4> <p class="class-description">` + c.description + `</p><div class="class-stats"><p class="class-availablity"><span>` + c.registered + `</span><span>/</span><span>20</span></p><p class="class-day-time">` + c.days + ` From ` + c.start + ` to ` + c.end + `</p><button class="class-add" id="` + c.id +`">Add Class</button></div>`
     } else {
-        var classHtml = `<h4>` + c.name + `</h4> <p class="class-description">` + c.description + `</p><div class="class-stats"><p class="class-availablity"><span>` + c.registered + `</span><span>/</span><span>` + c.available + `</span></p><p class="class-day-time">` + c.days + ` From ` + c.start + ` to ` + c.end + `</p><button class="class-full" id="` + c.id +`">Class Full</button></div>`
+        var classHtml = `<h4>` + c.name + `</h4> <p class="class-description">` + c.description + `</p><div class="class-stats"><p class="class-availablity"><span>` + c.registered + `</span><span>/</span><span>20</span></p><p class="class-day-time">` + c.days + ` From ` + c.start + ` to ` + c.end + `</p><button class="class-full" id="` + c.id +`">Class Full</button></div>`
     }
 
     return classHtml
 }
 
 
+/************* UPDATECOURSESGOOGLESHEET FUNCTION *************/
+function updateCoursesGoogleSheet(c) {
+    const gscriptUrl = `https://script.google.com/macros/s/AKfycbwECpYfETqlDGakb5M-p5wfS5SwQHAGkdxZDCQjOvOlleWI7pE2__qQPPqXvtZJrfavCQ/exec`
+    const body = {
+        "id": c.id,
+        "subject": c.subject,
+        "name": c.name,
+        "description": c.description,
+        "online": c.online,
+        "registered": c.registered,
+        "days": c.days,
+        "start": c.start,
+        "end": c.end
+    }
+
+    const fetchOptions = {
+        method: 'POST',
+        body: JSON.stringify(body)
+    }
+
+    fetch(gscriptUrl, fetchOptions)
+    .then(res => res.json())
+    .then(console.log)
+    .catch(console.error)
+}

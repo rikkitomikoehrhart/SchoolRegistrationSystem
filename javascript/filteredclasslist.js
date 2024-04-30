@@ -23,19 +23,24 @@ var subjects = [];
 /************* ON LOAD WINDOW FUNCTION *************/
 window.onload = function() {
     /******* POPULATE SAVED DATA *******/
-        // Grab student from local storage
-        var localData = localStorage.getItem('user')
-        student = JSON.parse(localData)
+    // Grab student from local storage
+    var localData = localStorage.getItem('user')
+    student = JSON.parse(localData)
 
-        // Populate classList based on classes:
-        classList = populateClassList(student)
+    // Populate classList based on classes:
+    classList = populateClassList(student)
 
-        // add to selected class list:
+    // add to selected class list (waits a few seconds for the fetch data to populate):
+    setTimeout(function() {
         for (var c = 0; c < classList.length; c++) {
             addToSelectedClassList(classList[c])
         }
+    }, 4000);
 
+        // 
 
+    
+    console.log("hey")
 
     // Grab the filter checkboxes
     var typeOfClassBoxes = document.getElementsByClassName("typeOfClass");
@@ -116,6 +121,7 @@ function clearResults() {
 function getClasses(online, inPerson, subjects) {
     // Delcare an empty array to add values to or to return empty
     var listOfClasses = []
+    console.log(courses)
 
     // Loop through the subjects array of the wanted subjects
     for (var i = 0; i < subjects.length; i++) {
@@ -165,7 +171,8 @@ function updateList(classes) {
         classCard.classList.add(classes[i].id)
 
         // Create the HTML for the class card
-        if (classes[i].registered < classes[i].available) {
+        console.log(classes[i].registered)
+        if (classes[i].registered < 20) {
             var classHtml = `<h4>` + classes[i].name + `</h4> <p class="class-description">` + classes[i].description + `</p><div class="class-stats"><p class="class-availablity"><span>` + classes[i].registered + `</span><span>/</span><span>20</span></p><p class="class-day-time">` + classes[i].days + ` From ` + classes[i].start + ` to ` + classes[i].end + `</p><button class="class-add" id="` + classes[i].id +`">Add Class</button></div>`
         } else {
             var classHtml = `<h4>` + classes[i].name + `</h4> <p class="class-description">` + classes[i].description + `</p><div class="class-stats"><p class="class-availablity"><span>` + classes[i].registered + `</span><span>/</span><span>20</span></p><p class="class-day-time">` + classes[i].days + ` From ` + classes[i].start + ` to ` + classes[i].end + `</p><button class="class-full" id="` + classes[i].id +`">Class Full</button></div>`
