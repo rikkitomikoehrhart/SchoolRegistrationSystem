@@ -23,7 +23,9 @@ var online = true;
 var inPerson = true;
 var subjects = [];
 var xButtons = [];
-
+var typeOfClassBoxes = [];
+var subjectBoxes =[]
+var addClassButtons = []
 
 
 /******************************************************************** 
@@ -41,10 +43,29 @@ window.onload = function() {
 
     /******* SEARCH FILTER *******/
     // Grab the filter checkboxes
-    var typeOfClassBoxes = document.getElementsByClassName("typeOfClass");
-    var subjectBoxes = document.getElementsByClassName("subjectBox");
+    typeOfClassBoxes = document.getElementsByClassName("typeOfClass");
+    subjectBoxes = document.getElementsByClassName("subjectBox");
 
     // Check if the Online/InPerson checkboxes are checked
+    checkOnlineInPerson();
+
+    // Check if the Subject Boxes are checked
+    checkSubjectBoxes();
+
+
+
+    /******* ADD CLASSES TO SELECTED CLASS LIST *******/
+
+
+
+}
+
+
+/******************************************************************** 
+*                    SEARCH FILTERS FUNCTIONS                       *
+********************************************************************/
+/************* CHECKONLINEINPERSON FUNCTION *************/
+function checkOnlineInPerson() {
     for(var i = 0; i < typeOfClassBoxes.length; i++) {
         // Goes through array of checkboxes and checks id and if checked
         typeOfClassBoxes[i].onclick = function(e) {
@@ -56,8 +77,10 @@ window.onload = function() {
             updateUI()
         }
     }
+}
 
-    // Check if the Subject Boxes are checked
+/************* CHECKSUBJECTBOXES *************/
+function checkSubjectBoxes() {
     for (var i = 0; i < subjectBoxes.length; i++) {
         // Goes through array of checkboxes and checks if they are checked
         subjectBoxes[i].onclick = function(e) {
@@ -74,12 +97,11 @@ window.onload = function() {
             updateUI()
         }
     }
+}
 
-
-
-    /******* ADD CLASSES TO SELECTED CLASS LIST *******/
+function addAddClassButtons() {
     // Grab the add class buttons
-    var addClassButtons = document.getElementsByClassName("class-add");
+    addClassButtons = document.getElementsByClassName("class-add");
 
     // Loop through the buttons and add an onclick function
     for (var i = 0; i < addClassButtons.length; i++) {
@@ -92,8 +114,16 @@ window.onload = function() {
                 // add class to the list
                 classList.push(e.target.id)
                 
+                // Get the course for the target
+                var tempCourse;
+                for (var c = 0; c < courses.length; c++) {
+                    if (e.target.id === courses[c].id) {
+                        tempCourse = courses[c]
+                    }
+                }
+
                 // and add class to selected class list
-                addOneToSelectedClassList(e.target.id);
+                addOneToSelectedClassList(tempCourse);
                 updateRegistered(e.target.id);
 
                 /******* REMOVE CLASSES FROM SELECTED CLASSES LIST *******/
@@ -101,9 +131,13 @@ window.onload = function() {
             }
         })
     }
-
-
 }
+
+
+
+
+
+
 
 
 
@@ -116,41 +150,7 @@ window.onload = function() {
 function addToSelectedClassList() {
     // Loop through the class list:
     for (var c = 0; c < classList.length; c++) {
-        // Grab the elements
-        var listOfClasses = document.getElementsByClassName("added-class");
-        var selectedList = document.getElementById("selected-classes-list");
-
-        // Create a div element to be the class selection
-        var selectedClass = document.createElement("div");
-
-        // give it a class of "class" for styling and add the id to class for functionality
-        selectedClass.classList.add("added-class");
-        selectedClass.classList.add(classList[c].id);
-
-        // Get the HTML for the new row 
-        var classHTML = getSelectedClassHTML(classList[c])
-
-        // Assign classHtml to the selected class item
-       selectedClass.innerHTML = classHTML;
-
-        // Delcare a Boolean ok to match variable
-        var okToMatch = true
-
-        // Check to see if the html matches a class already listed
-        for (var l = 0; l < listOfClasses.length; l++) {
-            if (selectedClass === listOfClasses[l]) {
-                okToMatch = false
-            }
-        }
-
-        // If it is ok to add, then add
-        if (okToMatch) {
-            // Append the selected class to the list
-            selectedList.appendChild(selectedClass);
-        }
-        
-        // Add the button to xButton list
-        xButtons = document.getElementsByClassName("xButton");
+        addOneToSelectedClassList(classList[c])
     }
 }
 
@@ -278,6 +278,8 @@ function updateList(c) {
         // Append the card to the class list.
         classList.appendChild(classCard)
     }
+
+    addAddClassButtons();
 }
 
 /************* GETCLASSCARDHTML FUNCTION ************/
@@ -337,7 +339,7 @@ function okToAddClass(e) {
     if (classList.length > 0) {
         // Loop through the classList of ids
         for (var i = 0; i < classList.length; i++) {
-            if (e.target.id === classList[i]) {
+            if (e.target.id === classList[i].id) {
                 // if the class is already on the list, okToAdd is false
                 okToAdd = false;
                 alert("Class has already been added")
@@ -396,10 +398,10 @@ function addOneToSelectedClassList(e) {
 
     // give it a class of "class" for styling
     selectedClass.classList.add("added-class");
+    selectedClass.classList.add(e.id);
 
     // Get the HTML for the new row 
-    var classHTML = getHTML(e, selectedClass)
-    console.log(classHTML)
+    var classHTML = getSelectedClassHTML(e)
 
     // Assign classHtml to the selected class item
     selectedClass.innerHTML = classHTML;
