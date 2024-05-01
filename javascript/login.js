@@ -25,6 +25,9 @@ var user;
 var loadingSign = document.getElementById('loading')
 var loginBox = document.getElementById('login-box')
 
+// Google API KEY
+const apiKey = `AIzaSyBsKeWicVmKOgL311Yw4BYaxXXkAvP_y6w`
+
 // Course Google Sheet
 const courseUrl = `https://script.google.com/macros/s/AKfycbz9kwt9zQI2Y4lX_p9_XVYuF_awQnUd2_cnidcnhhf_974_tlL7kNGFMEah4Ffh6M_3IA/exec`
 var courses = [];
