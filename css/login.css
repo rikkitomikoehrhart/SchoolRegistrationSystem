@@ -19,6 +19,37 @@ body {
 
 
 /* LOGIN BOX */
+.loading {
+    position: absolute;
+    font-size: 2.5rem;
+    top: 35%;
+    left: 35%;
+    color: #F7EEDD;
+    text-shadow: #014569 0px 0px 10px;
+    opacity: 1;
+    transition: opacity 2s;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+.fadeOut {
+    opacity: 0;
+}
+
 .login-box {
     position: absolute;
     width: 40%;

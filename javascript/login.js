@@ -22,6 +22,7 @@
 var user;
 
 // Grab the login container:
+var loadingSign = document.getElementById('loading')
 var loginBox = document.getElementById('login-box')
 
 // Course Google Sheet
@@ -61,6 +62,7 @@ window.onload = function() {
 ********************************************************************/
 function main() {
     /******** LOGGIN REAPPEARS *******/
+    loadingSign.classList.toggle('fadeOut')
     loginBox.classList.toggle('fadeIn');
 
 
