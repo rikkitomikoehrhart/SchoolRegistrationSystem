@@ -25,11 +25,6 @@ var user;
 var loadingSign = document.getElementById('loading')
 var loginBox = document.getElementById('login-box')
 
-// Google API KEY
-const API_KEY = `AIzaSyBsKeWicVmKOgL311Yw4BYaxXXkAvP_y6w`;
-const CLIENT_ID = `310808344355-76dncc9h4breqn2qj06s068jjp4r8om3.apps.googleusercontent.com`;
-
-
 // Course Google Sheet
 const courseUrl = `https://script.google.com/macros/s/AKfycbz9kwt9zQI2Y4lX_p9_XVYuF_awQnUd2_cnidcnhhf_974_tlL7kNGFMEah4Ffh6M_3IA/exec`
 var courses = [];
@@ -43,7 +38,6 @@ var students = [];
 let studentSheetData = [
     fetch(`${studentUrl}`)
 ];
-
 
 
 
@@ -229,19 +223,4 @@ function saveToLocalStorage() {
 }
 
 
-function getValues(spreadsheetId, range, callback) {
-    try {
-      gapi.client.sheets.spreadsheets.values.get({
-        spreadsheetId: spreadsheetId,
-        range: range,
-      }).then((response) => {
-        const result = response.result;
-        const numRows = result.values ? result.values.length : 0;
-        console.log(`${numRows} rows retrieved.`);
-        if (callback) callback(response);
-      });
-    } catch (err) {
-      document.getElementById('content').innerText = err.message;
-      return;
-    }
-  }
+
