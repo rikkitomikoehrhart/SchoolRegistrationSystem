@@ -2,8 +2,9 @@
 
 - A web application for a school registration system that allows students to register for courses and view their schedules -- this is my final project for my Beginner Web Programming Class, Spring 2024.
 
-I have used html, css, javascript, and a little PHP.
-I have housed the student informaiton (id, name, password, classes, etc.) and the course information (subject, name, description, availablity, etc.) into two Google Sheets. This program pulls the data from the sheets to use in the application. 
+I have used html, css, javascript, and nodejs (in order to access the Google Sheets API).
+
+I have housed the student information (id, name, password, classes, etc.) and the course information (subject, name, description, registered, etc.) into two Google Sheets. This program pulls the data from the sheets to use in the application. 
 
 ---
 # Table of Contents
@@ -27,20 +28,13 @@ I have housed the student informaiton (id, name, password, classes, etc.) and th
 In order to test the code in the test server:
 1. Click on the Green **< > Code** button. 
 2. Click on the **Codespaces** tab
-3. Click on the code space labeled **"PHP Test Environment"**
+3. Click on the code space labeled **"Test Environment"**
 4. Once loaded in the terminal enter the following code and press enter:
 ```
-sudo sed -i 's/Listen 80$//' /etc/apache2/ports.conf
+npm start
 ```
-5. Then enter the following code and press enter:
-```
-sudo sed -i 's/<VirtualHost \*:80>/ServerName 127.0.0.1\n<VirtualHost \*:8080>/' /etc/apache2/sites-enabled/000-default.conf
-```
-6. Then enter the following code and press enter:
-```
-apache2ctl start
-```
-7. After a few seconds a pop up should appear in the bottom right hand corner letting you know that the server is live -- click the **Open in Browser** button and a new tab will appear with the test site. 
+5. After a few seconds a pop up should appear in the bottom right hand corner letting you know that the server is live -- (click the **Open in Browser** button and a new tab will appear with the server saying "Hello Remote World!")
+6. Instead, click on the "PORTS" tab next to the "TERMINAL" tab and right click on the 8080 port. From the menu click on "Open in Browser" at the top of the list.
 
 
 ---

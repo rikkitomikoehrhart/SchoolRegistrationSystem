@@ -19,7 +19,11 @@
 var courses = JSON.parse(localStorage.getItem('courses'));
 var student = JSON.parse(localStorage.getItem('user'));
 var classList = JSON.parse(localStorage.getItem("coursesArray"))
+
+// Grab form
 var registrationForm = document.getElementById('selected-classes')
+
+// Declare filters and filters lists
 var online = true;
 var inPerson = true;
 var subjects = [];
@@ -27,6 +31,10 @@ var xButtons = [];
 var typeOfClassBoxes = [];
 var subjectBoxes =[]
 var addClassButtons = []
+
+// Declare google sheets url
+const courseUrl = `https://script.google.com/macros/s/AKfycbz9kwt9zQI2Y4lX_p9_XVYuF_awQnUd2_cnidcnhhf_974_tlL7kNGFMEah4Ffh6M_3IA/exec`
+
 
 
 /******************************************************************** 
@@ -56,7 +64,7 @@ window.onload = function() {
 
 
     /******* REGISTER BUTTON/FUNCTIONALITY *******/
-    
+    testUpdate()
 
 
 
@@ -489,12 +497,39 @@ function updateUI() {
 
 
 
+/******************************************************************** 
+*                    SAVE TO GOOGLE FUNCTIONS                       *
+********************************************************************/
+function updateGoogleSheets(e) {
+    var courseInfo = {
+        id: e.id,
+        subject: e.subject,
+        name: e.name,
+        description: e.description,
+        online: e.online,
+        registered: e.registered,
+        days: e.days,
+        start: e.start,
+        end: e.end
+    };
+
+    fetch(courseUrl, {
+        redirect: "follow",
+        method: 'POST',
+        body: JSON.stringify(courseInfo),
+        headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+        },
+    }).then((res) => res.text()).then((res) => console.log(res));
+}
 
 
+function testUpdate() {
+    var testCourse = courses[0]
+    testCourse.registered = 20
 
-
-
-
+    updateGoogleSheets(testCourse)
+}
 
 
 

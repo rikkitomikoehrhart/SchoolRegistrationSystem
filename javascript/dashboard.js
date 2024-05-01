@@ -29,6 +29,8 @@ window.onload = function() {
    var localUserData = localStorage.getItem('user');
    user = JSON.parse(localUserData)
    
+   // Add user's name to welcome message
+   document.getElementById('username').innerText = user.name;
 
    // Grab the classes from local storage
    var localClassesData = localStorage.getItem('courses')
