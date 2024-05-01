@@ -19,6 +19,7 @@
 var courses = JSON.parse(localStorage.getItem('courses'));
 var student = JSON.parse(localStorage.getItem('user'));
 var classList = JSON.parse(localStorage.getItem("coursesArray"))
+var registrationForm = document.getElementById('selected-classes')
 var online = true;
 var inPerson = true;
 var subjects = [];
@@ -54,7 +55,8 @@ window.onload = function() {
 
 
 
-    /******* ADD CLASSES TO SELECTED CLASS LIST *******/
+    /******* REGISTER BUTTON/FUNCTIONALITY *******/
+    
 
 
 
