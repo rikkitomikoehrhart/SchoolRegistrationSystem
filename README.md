@@ -2,6 +2,8 @@
 
 - A web application for a school registration system that allows students to register for courses and view their schedules -- this is my final project for my Beginner Web Programming Class, Spring 2024.
 
+I have used html, css, javascript, and a little PHP.
+I have housed the student informaiton (id, name, password, classes, etc.) and the course information (subject, name, description, availablity, etc.) into two Google Sheets. This program pulls the data from the sheets to use in the application. 
 
 ---
 # Table of Contents
