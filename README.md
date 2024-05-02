@@ -2,9 +2,9 @@
 
 - A web application for a school registration system that allows students to register for courses and view their schedules -- this is my final project for my Beginner Web Programming Class, Spring 2024.
 
-I have used html, css, javascript, and nodejs (in order to access the Google Sheets API).
+I have used html, css, and javascript.
 
-I have housed the student information (id, name, password, classes, etc.) and the course information (subject, name, description, registered, etc.) into two Google Sheets. This program pulls the data from the sheets to use in the application. 
+I have housed the student information (id, name, password, classes, etc.) and the course information (subject, name, description, registered, etc.) into two Google Sheets. This program pulls the data from the sheets to use in the application, but it does not post to Google Sheets (which requires Nodejs which I haven't learned yet), it does save the students and courses to local storage. 
 
 ---
 # Table of Contents
@@ -25,16 +25,14 @@ I have housed the student information (id, name, password, classes, etc.) and th
 
 ## Testing Environment
 
-In order to test the code in the test server:
+In order to test the code in the test server from Github Browser:
 1. Click on the Green **< > Code** button. 
 2. Click on the **Codespaces** tab
 3. Click on the code space labeled **"Test Environment"**
-4. Once loaded in the terminal enter the following code and press enter:
-```
-npm start
-```
-5. After a few seconds a pop up should appear in the bottom right hand corner letting you know that the server is live -- (click the **Open in Browser** button and a new tab will appear with the server saying "Hello Remote World!")
-6. Instead, click on the "PORTS" tab next to the "TERMINAL" tab and right click on the 8080 port. From the menu click on "Open in Browser" at the top of the list.
+4. Once loaded to the **Extensions** Tab on the left
+5. Ensure that you have **Live Server (Five Server)** (or a different live server of your choice)
+6. If it is installed you will see a **"Go Live"** button in the bottom right hand corner of the screen
+7. Click go live and you will have the server running live in another browser tab.
 
 
 ---
