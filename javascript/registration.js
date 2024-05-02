@@ -9,7 +9,7 @@
    Filename: registration.js
 
    =========
-   This file runs the search classes filter feature on the registration page
+   This file runs the registration page
 
 */
 /******************************************************************** 
