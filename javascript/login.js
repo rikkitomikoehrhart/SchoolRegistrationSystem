@@ -4,13 +4,14 @@
    SchoolRegistationSystem
 
    Author: Rikki Tomiko Ehrhart
-   Date:   04.28.24
+   Date:   05.02.24
 
    Filename: login.js
 
    =========
    This file pulls the data from the google sheets and saves them to 
    local storage and checks the username and password for the user
+   and then verifies if they can move on to the dashboard
 
 */
 
@@ -44,6 +45,8 @@ let studentSheetData = [
 
 
 
+
+
 /******************************************************************** 
 *                     WINDOW ONLOAD FUNCTION                        *
 ********************************************************************/
@@ -58,7 +61,6 @@ window.onload = function() {
         .then(() => main());
     
 }
-
 
 /******************************************************************** 
 *                       MAIN FUNCTIONALITY                          *
@@ -140,6 +142,7 @@ function main() {
                     // that student is correct, so it is okToAdd:
                     okToLogIn = true;
 
+                    // Save to local storage
                     saveToLocalStorage()
                 } else {
                     // if it does not, set password to empty string
@@ -158,9 +161,13 @@ function main() {
 
             }
 
+            // When the user leaves the password field
             passwordInput.onfocusout = function() {
                 if (!okToLogIn) {
+                    // if it isn't ok to log in, alert the user that the password is wrong 
                     window.alert("Password is incorret. Please try again. (Password is case sensitive)")
+                    
+                    // change password input to empty
                     passwordInput.value = '';
                 }
             }
@@ -168,8 +175,11 @@ function main() {
 
     }
 
+    // Reset Button Functionality
     resetButton.onclick = function() {
+        // resets student
         student = nil;
+        // resets the login button
         loginButton.disabled = true;
         loginButton.classList.remove("buttons");
         loginButton.classList.add("noLogIn")
@@ -182,47 +192,60 @@ function main() {
 
 
 
-
-
 /******************************************************************** 
 *                       FETCH FUNCTIONALITY                         *
 ********************************************************************/
-
 /************** GETCOURSEDATA FUNCTION *************/
+// Async function grabs the course data from the courses google sheet
+// Then goes through each item in the returned data and assigns it to
+// a new Course object, then adds that course to the courses array
 async function getCourseData() {
-    
     // Pull the data from Google Sheets
     const response = await Promise.all(courseSheetData);
     const data = await Promise.all(response.map((item) => {
         return item.json();
     }))
 
+    // Goes through the returned data
     for (var i = 1; i < data[0].length; i++) {
+        // creates a new course object with the return data
         var courseObj = new Course(data[0][i][0], data[0][i][1], data[0][i][2], data[0][i][3], data[0][i][4], data[0][i][5], data[0][i][6], data[0][i][7], data[0][i][8], data[0][i][9])
+        // adds the new object to the courses array
         courses.push(courseObj);
     }
 
 }
 
 /************** GETSTUDENTDATA FUNCTION *************/
+// Async function grabs the student data form the student google sheet
+// Then goes through each item in the returned data and assigns it to
+// a new Student object, then adds that student to the students array
 async function getStudentData() {
-    
     // Pull the data from Google Sheets
     const response = await Promise.all(studentSheetData);
     const data = await Promise.all(response.map((item) => {
         return item.json();
     }))
 
+    // Goes through the returned data
     for (var i = 1; i < data[0].length; i++) {
+        // creates a new student object with the return data
         var studentObj = new Student(data[0][i][0], data[0][i][1], data[0][i][2], data[0][i][3], data[0][i][4], data[0][i][5], data[0][i][6], data[0][i][7], data[0][i][8], data[0][i][9], data[0][i][10], data[0][i][11], data[0][i][12], data[0][i][13], data[0][i][14], data[0][i][15], data[0][i][16], data[0][i][17])
+        // add the new student to the students array
         students.push(studentObj);
     }
 }
 
 
+
+
+
 /******************************************************************** 
 *                     LOCAL STORAGE FUNCTION                        *
 ********************************************************************/
+/************* SAVETOLOCALSTORAGE FUNCTION *************/
+// saves all current values of courses array, students array, student
+// object, and classList array to the local storage
 function saveToLocalStorage() {
     localStorage.setItem('courses', JSON.stringify(courses));
     localStorage.setItem('students', JSON.stringify(students))
@@ -231,7 +254,13 @@ function saveToLocalStorage() {
 
 }
 
+/************* GETSTUDENTCLASSLIST FUNCTION *************/
+// Goes through each class property in the student object
+// if there is a class there, it adds the class id to the 
+// classList array and saves it to local storage
 function getStudentClassList() {
+    // If the property has something in it, push to the 
+    // classList array
     if (student.mw8) {
         classList.push(student.mw8)
     }
@@ -275,6 +304,7 @@ function getStudentClassList() {
         classList.push(student.su1)
     }
 
+    // Save to local storage
     localStorage.setItem('classList', JSON.stringify(classList))
 }
 
