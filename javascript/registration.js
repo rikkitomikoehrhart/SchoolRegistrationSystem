@@ -33,14 +33,22 @@ var subjectBoxes =[]
 var addClassButtons = []
 
 // Declare google sheets url
-const courseUrl = `https://script.google.com/macros/s/AKfycbz9kwt9zQI2Y4lX_p9_XVYuF_awQnUd2_cnidcnhhf_974_tlL7kNGFMEah4Ffh6M_3IA/exec`
-
-
+const courseUrl = `https://script.google.com/macros/s/AKfycbzyj9BpGkX9loD2_fxrdVe_6XwAqsoRk9ZerRe3fvXPLx3Ka8V41dnbL3hjxeijsA6-gQ/exec`
 
 /******************************************************************** 
 *                     WINDOW ONLOAD FUNCTION                        *
 ********************************************************************/
 window.onload = function() {
+
+    // TESTING
+    testUpdate().then(() => {
+        console.log("updated?")
+    })
+
+
+
+
+    
     /******* WHEN THE PAGE LOADS *******/
     // Fill the Selected Classes list  
     addToSelectedClassList()
@@ -513,23 +521,104 @@ function updateGoogleSheets(e) {
         end: e.end
     };
 
-    fetch(courseUrl, {
-        redirect: "follow",
+    fetch(testURL, {
         method: 'POST',
-        body: JSON.stringify(courseInfo),
+        // mode: 'cors',
+        cache: 'no-cache',
+        // credentials: 'same-origin',
         headers: {
-            "Content-Type": "text/plain;charset=utf-8",
+            'Content-Type': 'applicaiton/json'
         },
-    }).then((res) => res.text()).then((res) => console.log(res));
+        redirect: 'follow',
+        // referrerPolicy: 'no-referrer',
+        body: JSON.stringify(courseInfo)
+    })
+
+
+
+};
+
+
+async function testUpdate() {
+    var e = courses[0]
+    e.registered = 20
+    
+    var courseInfo = {
+        id: e.id,
+        subject: e.subject,
+        name: e.name,
+        description: e.description,
+        online: e.online,
+        registered: e.registered,
+        days: e.days,
+        start: e.start,
+        end: e.end
+    };
+ 
+    console.log(courseInfo)
+
+
+    /*** Load the API and make an API call.  Display the results on the screen.*/
+    const scriptId = '1B3MVXN6wZJVMb3FpEyETCzDkcJPK_i_aYzonK4wizBDX6El4tlWEp9RO';
+  
+    // Call the Apps Script API run method
+    //   'scriptId' is the URL parameter that states what script to run
+    //   'resource' describes the run request body (with the function name
+    //              to execute)
+    try {
+      gapi.client.script.scripts.run({
+        'scriptId': scriptId,
+        'resource': {
+          'function': 'plus',
+        },
+      }).then(function(resp) {
+        const result = resp.result;
+        if (result.error && result.error.status) {
+          // The API encountered a problem before the script
+          // started executing.
+          appendPre('Error calling API:');
+          appendPre(JSON.stringify(result, null, 2));
+        } else if (result.error) {
+          // The API executed, but the script returned an error.
+  
+          // Extract the first (and only) set of error details.
+          // The values of this object are the script's 'errorMessage' and
+          // 'errorType', and an array of stack trace elements.
+          const error = result.error.details[0];
+          appendPre('Script error message: ' + error.errorMessage);
+  
+          if (error.scriptStackTraceElements) {
+            // There may not be a stacktrace if the script didn't start
+            // executing.
+            appendPre('Script error stacktrace:');
+            for (let i = 0; i < error.scriptStackTraceElements.length; i++) {
+              const trace = error.scriptStackTraceElements[i];
+              appendPre('\t' + trace.function + ':' + trace.lineNumber);
+            }
+          }
+        } else {
+          // The structure of the result will depend upon what the Apps
+          // Script function returns. Here, the function returns an Apps
+          // Script Object with String keys and values, and so the result
+          // is treated as a JavaScript object (folderSet).
+  
+          const folderSet = result.response.result;
+          if (Object.keys(folderSet).length == 0) {
+            appendPre('No folders returned!');
+          } else {
+            appendPre('Folders under your root folder:');
+            Object.keys(folderSet).forEach(function(id) {
+              appendPre('\t' + folderSet[id] + ' (' + id + ')');
+            });
+          }
+        }
+      });
+    } catch (err) {
+        document.getElementById('content').innerText = err.message;
+      return;
+    }
 }
 
-
-function testUpdate() {
-    var testCourse = courses[0]
-    testCourse.registered = 20
-
-    updateGoogleSheets(testCourse)
-}
 
 
 

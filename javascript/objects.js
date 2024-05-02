@@ -15,7 +15,8 @@
 
 /************* STUDENT CLASS *************/
 class Student {
-    constructor(studentId, name, email, password, mw8, mw10, mw1, mw3, tt8, tt10, tt1, tt3, fr8, fr1, st8, st1, su8, su1) {
+    constructor(index, studentId, name, email, password, mw8, mw10, mw1, mw3, tt8, tt10, tt1, tt3, fr8, fr1, st8, st1, su8, su1) {
+        this.index = index;
         this.studentId = studentId;
         this.name = name;
         this.email = email;

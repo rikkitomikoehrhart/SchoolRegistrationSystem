@@ -26,18 +26,18 @@ var loadingSign = document.getElementById('loading')
 var loginBox = document.getElementById('login-box')
 
 // Course Google Sheet
-const courseUrl = `https://script.google.com/macros/s/AKfycbz9kwt9zQI2Y4lX_p9_XVYuF_awQnUd2_cnidcnhhf_974_tlL7kNGFMEah4Ffh6M_3IA/exec`
+// const courseUrl = `https://script.google.com/macros/s/AKfycbzyj9BpGkX9loD2_fxrdVe_6XwAqsoRk9ZerRe3fvXPLx3Ka8V41dnbL3hjxeijsA6-gQ/exec`
 var courses = [];
-let courseSheetData = [
-    fetch(`${courseUrl}`)
-];
+// let courseSheetData = [
+//    fetch(`${courseUrl}`)
+//];
 
 // Student Google Sheet
-const studentUrl = `https://script.google.com/macros/s/AKfycbxhq_8hTF33TpHvFeWSrji9w5BbgjzDMjWqceRvbbQaj9eDFSJ_M8dsN1Yjk994XAiR1A/exec`
+// const studentUrl = `https://script.google.com/macros/s/AKfycbxhq_8hTF33TpHvFeWSrji9w5BbgjzDMjWqceRvbbQaj9eDFSJ_M8dsN1Yjk994XAiR1A/exec`
 var students = [];
-let studentSheetData = [
-    fetch(`${studentUrl}`)
-];
+// let studentSheetData = [
+//    fetch(`${studentUrl}`)
+//];
 
 
 
@@ -48,11 +48,14 @@ window.onload = function() {
     /******* GRAB COURSE DATA *******/
     // Grab, then save to local storage then run main() to continue 
     // the functionality of the login screen
-    getCourseData()
-        .then(() => getStudentData())
-        .then(() => saveToLocalStorage())
-        .then(() => main());
+    
+    // getCourseData()
+    //    .then(() => getStudentData())
+    //    .then(() => saveToLocalStorage())
+    //    .then(() => main());
 
+    var coursesListTemp = JSON.parse(sessionStorage.getItem('courseListTemp'))
+    console.log(coursesListTemp)
 }
 
 
@@ -191,7 +194,7 @@ async function getCourseData() {
     }))
 
     for (var i = 1; i < data[0].length; i++) {
-        var courseObj = new Course(data[0][i][0], data[0][i][1], data[0][i][2], data[0][i][3], data[0][i][4], data[0][i][5], data[0][i][6], data[0][i][7], data[0][i][8])
+        var courseObj = new Course(data[0][i][0], data[0][i][1], data[0][i][2], data[0][i][3], data[0][i][4], data[0][i][5], data[0][i][6], data[0][i][7], data[0][i][8], data[0][i][9])
         courses.push(courseObj);
     }
 
