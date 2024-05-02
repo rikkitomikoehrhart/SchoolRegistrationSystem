@@ -4,9 +4,9 @@
    SchoolRegistationSystem
 
    Author: Rikki Tomiko Ehrhart
-   Date:   04.23.24
+   Date:   05.02.24
 
-   Filename: filteredclasslist.js
+   Filename: registration.js
 
    =========
    This file runs the search classes filter feature on the registration page
@@ -39,15 +39,12 @@ var registrationMessage = document.getElementById('registration-message');
 
 
 
+
+
 /******************************************************************** 
 *                     WINDOW ONLOAD FUNCTION                        *
 ********************************************************************/
 window.onload = function() {
-
-    console.log(students)
-    console.log(student)
-
-
     /******* WHEN THE PAGE LOADS *******/
     // Fill the Selected Classes list  
     addToSelectedClassList()
@@ -87,10 +84,15 @@ window.onload = function() {
 }
 
 
+
+
+
 /******************************************************************** 
 *                    SEARCH FILTERS FUNCTIONS                       *
 ********************************************************************/
 /************* CHECKONLINEINPERSON FUNCTION *************/
+// Goes through checkboxes and adds an onclick to run a funciton to check
+// if the online and/or inperson checkboxes are checked
 function checkOnlineInPerson() {
     for(var i = 0; i < typeOfClassBoxes.length; i++) {
         // Goes through array of checkboxes and checks id and if checked
@@ -105,7 +107,9 @@ function checkOnlineInPerson() {
     }
 }
 
-/************* CHECKSUBJECTBOXES *************/
+/************* CHECKSUBJECTBOXES FUNCTION *************/
+// Goes through checkeboxes and adds an onclick to run a function to check
+// if any of the subject checkboxes are checked
 function checkSubjectBoxes() {
     for (var i = 0; i < subjectBoxes.length; i++) {
         // Goes through array of checkboxes and checks if they are checked
@@ -125,6 +129,10 @@ function checkSubjectBoxes() {
     }
 }
 
+/************* ADDADDCLASSBUTTONS FUNCTION *************/
+// Grabs the add class buttons and goes through the array to add a onclick
+// function, checks if the class doesn't already conflict with any class 
+// already on the student's schedule and if there is no conflict, adds the class
 function addAddClassButtons() {
     // Grab the add class buttons
     addClassButtons = document.getElementsByClassName("class-add");
@@ -171,11 +179,6 @@ function addAddClassButtons() {
 
 
 
-
-
-
-
-
 /******************************************************************** 
 *                     SELECTED LIST FUNCTION                        *
 ********************************************************************/
@@ -196,7 +199,8 @@ function getSelectedClassHTML(c) {
 }
 
 /************* REMOVESELECTEDCLASS FUNCTION *************/
-// Adds an onclick function to selected class's xButton and removes it from list and array
+// Adds an onclick function to selected class's xButton and removes it 
+// from list and array
 function removeSelectedClass() {
     // Loop through the buttons
     for (var b = 0; b < xButtons.length; b++) {
@@ -229,9 +233,6 @@ function removeSelectedClass() {
         }
     }
 }
-
-
-
 
 
 
@@ -352,12 +353,6 @@ function removeSubject(e) {
     // remove the subject from the array
     subjects.splice(index, 1);
 }
-
-
-
-
-
-
 
 
 
@@ -491,7 +486,6 @@ function updateRegistered(updateClass) {
 
 
 
-
 /******************************************************************** 
 *                          UI FUNCTIONS                             *
 ********************************************************************/
@@ -524,18 +518,22 @@ function updateUI() {
 
 
 
+
 /******************************************************************** 
 *                     REGISTRATION FUNCTIONS                        *
 ********************************************************************/
 /************* CHANGEREGISTRATIONMESSAGE FUNCTION *************/
+// Changes the registration message to alert the user that their changes
+// are not saved
 function changeRegistrationMessage() {
     registrationMessage.innerText = "Class are unsaved! Click Register Now to save your classes!"
 }
 
 /************* REGISTERCLASSES FUNCTION *************/
+// Creates a new student object based on the current student and the 
+// updated class list. Then replaces the old student object with the
+// new one and saves it. 
 function registerClasses() {
-    console.log(students[3].studentId)
-
     // Save classList to local storage
     localStorage.setItem('classList', classList);
 
