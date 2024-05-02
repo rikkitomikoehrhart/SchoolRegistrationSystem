@@ -196,3 +196,54 @@ main hr {
         margin-left: 300px;
     }
 }
+
+/* MOBILE STYLES */
+@media only screen and (max-device-width: 480px){
+    h1 {
+        font-size: 2.5rem;
+    }
+    .welcomemessage {
+        font-size: 1.5rem;
+        margin-top: -20px;
+        margin-left: 15px;
+    }
+    aside {
+        padding: 0;
+    }
+    main {
+        width: 100%;
+    }
+    .course-calendar-title {
+        display: none;
+    }
+    table {
+        display: none;
+    }
+    main hr {
+        display: none;
+    }
+    .course-gallery {
+        margin-top: 10px;
+    }
+    .course-card {
+        margin: 25px 10px 0 20px;
+        width: 100%;
+    }
+    .course-card h5 {
+        margin: 25px;
+        font-size: 1rem;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        letter-spacing: 3px;
+        color: #014569;
+    }
+    
+    .course-card p {
+        margin: 0 25px 10px 25px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    
+    .datetime {
+        font-family: monospace;
+        color: #99b1b6;
+    }
+}

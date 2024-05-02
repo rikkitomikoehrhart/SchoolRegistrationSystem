@@ -44,3 +44,16 @@ footer {
 .footer-right {
     width: 33%;
 }
+
+/* MOBILE STYLES */
+@media only screen and (max-device-width: 480px){
+    footer {
+        font-size: .75rem;
+    }
+    .footer-left {
+        width: 25%;
+    }
+    .footer-left ul {
+        padding-left: 0px;
+    }
+}

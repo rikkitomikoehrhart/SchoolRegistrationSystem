@@ -216,3 +216,72 @@ h4 {
         width: 30%;
     }
 }
+
+/* MOBILE STYLES */
+@media only screen and (max-device-width: 480px){
+    h3 {
+        font-size: 1rem;
+    }
+    label {
+        font-size: .75rem;
+    }
+    .type-of-class {
+        padding: 0;
+        margin: 0;
+    }
+    .subject {
+        margin: 0;
+        padding: 0;
+    }
+    .filter-obj {
+        margin: 0;
+    }
+    article {
+        width: 45%;
+    }
+    section {
+        width: 40%;
+    }
+    h4 {
+        margin-top: 10px;
+        font-size: 1rem;
+    }
+    p {
+        font-size: .75rem;
+    }
+    .class {
+        margin: 0 0 10px 0;
+    }
+    .class-stats {
+        display: inline;
+        padding: 0;
+    }
+    .class-availablity, .class-day-time, class-add {
+        width: 100%;
+    }
+    .class-description {
+        margin: 5px 0 5px 0;
+    }
+    .class-add {
+        width: 100%;
+    }
+    .class-full {
+        width: 100%;
+    }
+    .added-class {
+        margin: 5px;
+    }
+    h5 {
+        font-size: .65rem;
+    }
+    .added-class p {
+        font-size: .5rem;
+    }
+    .registration-button {
+        margin: 15px 10px 5px 10px;
+    }
+    #registration-message {
+        font-size: 1rem;
+        text-shadow: none;
+    }
+}
