@@ -184,3 +184,35 @@ h4 {
     text-align: center;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
+
+/* TABLET STYLES */
+@media only screen and (max-device-width: 769px){
+    main {
+        flex-wrap: wrap;
+    }
+    aside {
+        display: flex;
+        width: 100%;
+    }
+    .filter form {
+        width: 100vw;
+        display: flex;
+    }
+    .type-group {
+        width: 45%;
+    }
+    .subject-group {
+        width: 45%;
+    }
+    .subject {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    article {
+        width: 55%;
+        margin-left: 25px
+    }
+    section {
+        width: 30%;
+    }
+}

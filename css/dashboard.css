@@ -181,3 +181,18 @@ main hr {
     border-radius: 0px;
     background-color: #008dda;
 }
+
+/* TABLET STYLES */
+@media only screen and (max-device-width: 769px){
+    aside {
+        display: none;
+    }
+    article {
+        width: 95%;
+    }
+    .welcomemessage {
+        font-size: 2.25rem;
+        margin-top: -50px;
+        margin-left: 300px;
+    }
+}

@@ -126,3 +126,23 @@ body {
     color: white;
     box-shadow: rgb(78, 1, 1) 1px 1px 2px;
 }
+
+/* TABLET STYLES */
+@media only screen and (max-device-width: 769px){
+    body {
+        background-image: url("../images/academicssign.jpg");
+        height: 100vh;
+        background-position: center;
+        background-size: cover;
+    }
+    .loading {
+        position: absolute;
+        font-size: 2rem;
+        top: 35%;
+        left: 30%;
+        color: #F7EEDD;
+        text-shadow: #014569 0px 0px 10px;
+        opacity: 1;
+        transition: opacity 2s;
+    }
+}

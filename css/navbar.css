@@ -39,3 +39,10 @@ nav ul li a {
     font-size: 1.5rem;
     text-shadow: #008dda 1px 1px 0px;
 }
+
+/* TABLET STYLES */
+@media only screen and (max-device-width: 769px){
+    nav ul li a {
+        font-size: 1.25rem;
+    }
+}
