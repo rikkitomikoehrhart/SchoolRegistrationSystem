@@ -17,8 +17,9 @@
 ********************************************************************/
 // Grab the classes from local storage
 var courses = JSON.parse(localStorage.getItem('courses'));
-var student = JSON.parse(localStorage.getItem('user'));
-var classList = JSON.parse(localStorage.getItem("coursesArray"))
+var student = JSON.parse(localStorage.getItem('student'));
+var classList = JSON.parse(localStorage.getItem("coursesArray"));
+var students = JSON.parse(localStorage.getItem('students'));
 
 // Grab form
 var registrationForm = document.getElementById('selected-classes')
@@ -32,23 +33,21 @@ var typeOfClassBoxes = [];
 var subjectBoxes =[]
 var addClassButtons = []
 
-// Declare google sheets url
-const courseUrl = `https://script.google.com/macros/s/AKfycbzyj9BpGkX9loD2_fxrdVe_6XwAqsoRk9ZerRe3fvXPLx3Ka8V41dnbL3hjxeijsA6-gQ/exec`
+
+// Grab Registration Message:
+var registrationMessage = document.getElementById('registration-message');
+
+
 
 /******************************************************************** 
 *                     WINDOW ONLOAD FUNCTION                        *
 ********************************************************************/
 window.onload = function() {
 
-    // TESTING
-    testUpdate().then(() => {
-        console.log("updated?")
-    })
+    console.log(students)
+    console.log(student)
 
 
-
-
-    
     /******* WHEN THE PAGE LOADS *******/
     // Fill the Selected Classes list  
     addToSelectedClassList()
@@ -72,7 +71,16 @@ window.onload = function() {
 
 
     /******* REGISTER BUTTON/FUNCTIONALITY *******/
-    testUpdate()
+    var registrationButton = document.getElementById('registration-button')
+    registrationButton.onclick = function(e) {
+        e.preventDefault();
+        
+        // Save Classes
+        registerClasses();
+
+        // Change Registration Message:
+        registrationMessage.innerText = "REGISTERED!"
+    }
 
 
 
@@ -130,7 +138,14 @@ function addAddClassButtons() {
             // If okToAdd is true
             if (okToAdd) {
                 // add class to the list
-                classList.push(e.target.id)
+                var courseToAdd 
+                for (var c = 0; c < courses.length; c++) {
+                    if (e.target.id === courses[c].id) {
+                        courseToAdd = courses[c]
+                    }
+                }
+
+                classList.push(courseToAdd)
                 
                 // Get the course for the target
                 var tempCourse;
@@ -143,6 +158,7 @@ function addAddClassButtons() {
                 // and add class to selected class list
                 addOneToSelectedClassList(tempCourse);
                 updateRegistered(e.target.id);
+                changeRegistrationMessage();
 
                 /******* REMOVE CLASSES FROM SELECTED CLASSES LIST *******/
                 removeSelectedClass();
@@ -504,124 +520,99 @@ function updateUI() {
 
 
 
-
 /******************************************************************** 
-*                    SAVE TO GOOGLE FUNCTIONS                       *
+*                     REGISTRATION FUNCTIONS                        *
 ********************************************************************/
-function updateGoogleSheets(e) {
-    var courseInfo = {
-        id: e.id,
-        subject: e.subject,
-        name: e.name,
-        description: e.description,
-        online: e.online,
-        registered: e.registered,
-        days: e.days,
-        start: e.start,
-        end: e.end
-    };
-
-    fetch(testURL, {
-        method: 'POST',
-        // mode: 'cors',
-        cache: 'no-cache',
-        // credentials: 'same-origin',
-        headers: {
-            'Content-Type': 'applicaiton/json'
-        },
-        redirect: 'follow',
-        // referrerPolicy: 'no-referrer',
-        body: JSON.stringify(courseInfo)
-    })
-
-
-
-};
-
-
-async function testUpdate() {
-    var e = courses[0]
-    e.registered = 20
-    
-    var courseInfo = {
-        id: e.id,
-        subject: e.subject,
-        name: e.name,
-        description: e.description,
-        online: e.online,
-        registered: e.registered,
-        days: e.days,
-        start: e.start,
-        end: e.end
-    };
- 
-    console.log(courseInfo)
-
-
-    /*** Load the API and make an API call.  Display the results on the screen.*/
-    const scriptId = '1B3MVXN6wZJVMb3FpEyETCzDkcJPK_i_aYzonK4wizBDX6El4tlWEp9RO';
-  
-    // Call the Apps Script API run method
-    //   'scriptId' is the URL parameter that states what script to run
-    //   'resource' describes the run request body (with the function name
-    //              to execute)
-    try {
-      gapi.client.script.scripts.run({
-        'scriptId': scriptId,
-        'resource': {
-          'function': 'plus',
-        },
-      }).then(function(resp) {
-        const result = resp.result;
-        if (result.error && result.error.status) {
-          // The API encountered a problem before the script
-          // started executing.
-          appendPre('Error calling API:');
-          appendPre(JSON.stringify(result, null, 2));
-        } else if (result.error) {
-          // The API executed, but the script returned an error.
-  
-          // Extract the first (and only) set of error details.
-          // The values of this object are the script's 'errorMessage' and
-          // 'errorType', and an array of stack trace elements.
-          const error = result.error.details[0];
-          appendPre('Script error message: ' + error.errorMessage);
-  
-          if (error.scriptStackTraceElements) {
-            // There may not be a stacktrace if the script didn't start
-            // executing.
-            appendPre('Script error stacktrace:');
-            for (let i = 0; i < error.scriptStackTraceElements.length; i++) {
-              const trace = error.scriptStackTraceElements[i];
-              appendPre('\t' + trace.function + ':' + trace.lineNumber);
-            }
-          }
-        } else {
-          // The structure of the result will depend upon what the Apps
-          // Script function returns. Here, the function returns an Apps
-          // Script Object with String keys and values, and so the result
-          // is treated as a JavaScript object (folderSet).
-  
-          const folderSet = result.response.result;
-          if (Object.keys(folderSet).length == 0) {
-            appendPre('No folders returned!');
-          } else {
-            appendPre('Folders under your root folder:');
-            Object.keys(folderSet).forEach(function(id) {
-              appendPre('\t' + folderSet[id] + ' (' + id + ')');
-            });
-          }
-        }
-      });
-    } catch (err) {
-        document.getElementById('content').innerText = err.message;
-      return;
-    }
+/************* CHANGEREGISTRATIONMESSAGE FUNCTION *************/
+function changeRegistrationMessage() {
+    registrationMessage.innerText = "Class are unsaved! Click Register Now to save your classes!"
 }
 
+/************* REGISTERCLASSES FUNCTION *************/
+function registerClasses() {
+    console.log(students[3].studentId)
 
+    // Save classList to local storage
+    localStorage.setItem('classList', classList);
 
+    // Create blank variables:
+    var mw8
+    var mw10
+    var mw1
+    var mw3
+    var tt8
+    var tt10
+    var tt1
+    var tt3
+    var fr8
+    var fr1
+    var st8
+    var st1
+    var su8
+    var su1
 
+    // Then add the classes from the list
+    for (var i = 0; i < classList.length; i++) {        
+        if (classList[i].days == "Mon/Wed") {
+            if (classList[i].start == 8) {
+                mw8 = classList[i].id
+            } else if (classList[i].start == 10) {
+                mw10 = classList[i].id
+            } else if (classList[i].start == 1) {
+                mw1 = classList[i].id
+            } else if (classList[i].start == 3) {
+                mw3 = classList[i].id 
+            }
+        } else if (classList[i].days == "Tue/Thu") {
+            if (classList[i].start == 8) {
+                tt8 = classList[i].id
+            } else if (classList[i].start == 10) {
+                tt10 = classList[i].id
+            } else if (classList[i].start == 1) {
+                tt1 = classList[i].id
+            } else if (classList[i].start == 3) {
+                tt3 = classList[i].id
+            }
+        } else if (classList[i].days == 'Fri') {
+            if (classList[i].start == 8) {
+                fr8 = classList[i].id
+            } else if (classList[i].start == 1) {
+                fr1 = classList[i].id
+            }
+        } else if (classList[i].days == 'Sat') {
+            if (classList[i].start == 8) {
+                st8 = classList[i].id
+            } else if (classList[i].start == 1) {
+                st1 = classList[i].id
+            }
+        } else if (classList[i].days == 'Sun') {
+            if (classList[i].start == 8) {
+                su8 = classList[i].id
+            } else if (classList[i].start == 1) {
+                su1 = classList[i].id
+            }
+        }
+    }
 
+    // Create a new student instance:
+    var newStudent = new Student(student.studentId, student.name, student.email, student.password, mw8, mw10, mw1, mw3, tt8, tt10, tt1, tt3, fr8, fr1, st8, st1, su8, su1)
 
+    // Find the index of the original student file
+    var indexOf;
+    for (var s = 0; s < students.length; s++) {
+        if (students[s].name === student.name) {
+            indexOf = s
+        }
+    }
 
+    // Replace the studnet in the students array
+    students[indexOf] = newStudent
+
+    // Replace the student in the local storage
+    localStorage.setItem('student', JSON.stringify(newStudent))
+    localStorage.setItem('classList', JSON.stringify(classList))
+
+    // Make sure newStudent is now the current student
+    student = JSON.parse(localStorage.getItem('student'))
+
+}

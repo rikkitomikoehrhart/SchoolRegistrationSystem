@@ -16,8 +16,9 @@
 /******************************************************************** 
 *                        GLOBAL VARIABLES                           *
 ********************************************************************/
-var user;
+var student;
 var courses;
+var classList;
 
 /******************************************************************** 
 *                     WINDOW ONLOAD FUNCTION                        *
@@ -26,33 +27,33 @@ var courses;
 window.onload = function() {
    /******* GRABBING THE USER AND COURSE DATA *******/
    // Grab the student from local storage
-   var localUserData = localStorage.getItem('user');
-   user = JSON.parse(localUserData)
+   student = JSON.parse(localStorage.getItem('student'))
    
    // Add user's name to welcome message
-   document.getElementById('username').innerText = user.name;
+   document.getElementById('username').innerText = student.name;
 
    // Grab the classes from local storage
-   var localClassesData = localStorage.getItem('courses')
-   courses = JSON.parse(localClassesData)
+   courses = JSON.parse(localStorage.getItem('courses'))
 
+   // Gran the classList from local storage
+   classList = JSON.parse(localStorage.getItem('classList'))
 
 
    /******* SET CALENDAR *******/
    // Update Classes
-   updateWeekClasses(user)
-   udpateWeekendClasses(user)
+   updateWeekClasses(student)
+   udpateWeekendClasses(student)
 
 
 
    /******* SAVE STUDENT AND COURSES TO LOCAL STORAGE *******/
-   localStorage.setItem('user', JSON.stringify(user));
+   localStorage.setItem('student', JSON.stringify(student));
    localStorage.setItem('courses', JSON.stringify(courses));
 
 
    /******* SET CLASS CARDS *******/
    // Grab the user's personal class list
-   var userClassesArray = getClassArray(user);
+   var userClassesArray = getClassArray(student);
 
    // Fill out the Classes cards list
    addClassCards(userClassesArray);
