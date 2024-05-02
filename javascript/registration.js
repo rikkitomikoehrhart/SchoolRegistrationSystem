@@ -211,6 +211,10 @@ function removeSelectedClass() {
             // Remove that index class from the classesList so it can be added again if needed
             classList.splice(indexToRemove, 1);
 
+
+            // Change Registration message to let user know their changes aren't saved
+            changeRegistrationMessage();
+
             // Loop through the courses array
             for (var c = 0; c < courses.length; c++) {
                 // if the course.id matches the class that was removed
