@@ -4,12 +4,14 @@
    SchoolRegistationSystem
 
    Author: Rikki Tomiko Ehrhart
-   Date:   04.30.24
+   Date:   05.02.24
 
    Filename: dashboard.js
 
    =========
-   This file grabs the student file from the name in the welcome message
+   This file shows the logged in student's current class schedule,
+   a list of important dates in the side menu and their class 
+   information at the bottom of the page
 
 */
 
@@ -20,10 +22,13 @@ var student;
 var courses;
 var classList;
 
+
+
+
+
 /******************************************************************** 
 *                     WINDOW ONLOAD FUNCTION                        *
 ********************************************************************/
-/************* ONLOAD WINDOW FUNCTION *************/
 window.onload = function() {
    /******* GRABBING THE USER AND COURSE DATA *******/
    // Grab the student from local storage
@@ -62,6 +67,7 @@ window.onload = function() {
 
 
 
+
 /******************************************************************** 
 *                       CALENDAR FUNCTIONS                          *
 ********************************************************************/
@@ -95,7 +101,6 @@ function updateWeekClasses(student) {
    }
 }
 
-
 /************* UPDATEWEEKENDCLASSES FUNCTION *************/
 // Goes through the user.classes and calls the calendarWeekendEntry() function
 function udpateWeekendClasses(student) {
@@ -119,7 +124,6 @@ function udpateWeekendClasses(student) {
       calendarWeekendEntry(student.su1, 'su', 1)
    }
 }
-
 
 /************* CALENDARENTRY FUNCTION *************/
 // updates the calendar with the classes
@@ -150,16 +154,16 @@ function calendarEntry(course, days, time) {
       }
    }
    
+   // Places the className in the first hour box
    firsthour1.innerHTML = className;
    firsthour2.innerHTML = className;
 
+   // Add classes to element's class list for styling
    firsthour1.classList.add("calendar-top")
    firsthour2.classList.add("calendar-top")
    secondhour1.classList.add("calendar-bottom")
    secondhour2.classList.add("calendar-bottom")
 }
-
-
 
 /************* CALENDARWEEKENDENTRY FUNCTION *************/
 // updates the calendar with the weekend classes
@@ -189,13 +193,16 @@ function calendarWeekendEntry(course, day, time) {
       }
    }
    
+   // Add the class name to the first hour box
    firsthour.innerText = className;
 
+   // Add classes to the element's class list for styling
    firsthour.classList.add("calendar-top")
    secondhour.classList.add("calendar-middle")
    thirdhour.classList.add("calendar-middle")
    fourthhour.classList.add("calendar-bottom")
 }
+
 
 
 
@@ -295,9 +302,6 @@ function addClassCards(c) {
       // Append the classCard to the courseGallery element
       courseGallery.appendChild(classCard)
 
-
    }
 
-
 }
-
