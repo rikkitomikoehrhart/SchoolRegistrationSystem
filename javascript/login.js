@@ -1,5 +1,6 @@
 "use strict";
 
+
 /*
    SchoolRegistationSystem
 
@@ -29,15 +30,16 @@ var classList = [];
 var loadingSign = document.getElementById('loading')
 var loginBox = document.getElementById('login-box')
 
+
 // Course Google Sheet
-const courseUrl = `https://script.google.com/macros/s/AKfycbzyj9BpGkX9loD2_fxrdVe_6XwAqsoRk9ZerRe3fvXPLx3Ka8V41dnbL3hjxeijsA6-gQ/exec`
+const courseUrl = `https://script.google.com/macros/s/AKfycby9sqg3yfnwWXdca6CuwHMEWKGzWyCpYvlPbocLJtoJvJjrJrgn91po8BEXyLWjkMx0/exec`
 var courses = [];
 let courseSheetData = [
    fetch(`${courseUrl}`)
 ];
 
 // Student Google Sheet
-const studentUrl = `https://script.google.com/macros/s/AKfycbxhq_8hTF33TpHvFeWSrji9w5BbgjzDMjWqceRvbbQaj9eDFSJ_M8dsN1Yjk994XAiR1A/exec`
+const studentUrl = `https://script.google.com/macros/s/AKfycbwoLTvxTVXGnOr6djtTWGuCppgW28l3svg43QmHP9_aRc8fXnn4Z7vx6elR0nKkFEk5GQ/exec`
 var students = [];
 let studentSheetData = [
    fetch(`${studentUrl}`)

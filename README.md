@@ -2,13 +2,14 @@
 
 - A web application for a school registration system that allows students to register for courses and view their schedules -- this is my final project for my Beginner Web Programming Class, Spring 2024.
 
-I have used html, css, and javascript.
+I have used HTML, CSS, and JavaScript.
 
-I have housed the student information (id, name, password, classes, etc.) and the course information (subject, name, description, registered, etc.) into two Google Sheets. This program pulls the data from the sheets to use in the application, but it does not post to Google Sheets (which requires Nodejs which I haven't learned yet), it does save the students and courses to local storage. 
+I have housed the student information (name, password, classes, etc.) and the course information (subject, name, description, registered, etc.) into two Google Sheets. This program pulls the data from the sheets to use in the application, but it does not post to Google Sheets (which requires Nodejs which I haven't learned yet), it does save the students and courses to local storage. 
 
 ---
 # Table of Contents
 - [Testing Environment](https://github.com/rikkitomikoehrhart/SchoolRegistrationSystem?tab=readme-ov-file#testing-environment)
+  - [Log-ins](https://github.com/rikkitomikoehrhart/SchoolRegistationSystem?tab=readme-ov-file#log-ins)
 - [Project Requirements](https://github.com/rikkitomikoehrhart/SchoolRegistrationSystem?tab=readme-ov-file#project-requirements)
   - [User Authentication](https://github.com/rikkitomikoehrhart/SchoolRegistrationSystem?tab=readme-ov-file#user-authentication)
   - [Student Registration](https://github.com/rikkitomikoehrhart/SchoolRegistrationSystem?tab=readme-ov-file#student-registration)
@@ -34,6 +35,22 @@ In order to test the code in the test server from Github Browser:
 6. If it is installed you will see a **"Go Live"** button in the bottom right hand corner of the screen
 7. Click go live and you will have the server running live in another browser tab.
 
+
+### Log-ins
+There are 10 students in the database, feel free to play around with any student (this is all case sensitive):
+
+| User Name | Password |
+|-----------|----------|
+| Buffy Summers | buffy |
+| Kim Possible | kim |
+| Kitty Pryde | kitty |
+| Wendy Wu | wendy |
+| Marnie Cromwell | marnie |
+| Sydney Bristow | sydney |
+| Olivia Benson | olivia |
+| Veronica Mars | veronica |
+| Jessica Fletcher | jessica |
+| Velma Dinkley | velma |
 
 ---
 
