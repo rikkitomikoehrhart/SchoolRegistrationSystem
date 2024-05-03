@@ -28,12 +28,11 @@ I have housed the student information (name, password, classes, etc.) and the co
 
 In order to test the code in the test server from Github Browser:
 1. Click on the Green **< > Code** button. 
-2. Click on the **Codespaces** tab
-3. Click on the code space labeled **"Test Environment"**
-4. Once loaded to the **Extensions** Tab on the left
-5. Ensure that you have **Live Server (Five Server)** (or a different live server of your choice)
-6. If it is installed you will see a **"Go Live"** button in the bottom right hand corner of the screen
-7. Click go live and you will have the server running live in another browser tab.
+2. Clone on to your machine and open in VS Code (or a different IDE of your choice)
+3. Once loaded to the **Extensions** Tab on the left
+4. Ensure that you have **Live Server (Five Server)** (or a different live server of your choice)
+5. If it is installed you will see a **"Go Live"** button in the bottom right hand corner of the screen
+6. Click go live and you will have the server running live in another browser tab.
 
 
 ### Log-ins
