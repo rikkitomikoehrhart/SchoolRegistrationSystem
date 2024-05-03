@@ -205,15 +205,37 @@ function removeSelectedClass() {
     // Loop through the buttons
     for (var b = 0; b < xButtons.length; b++) {
         //On click function
-        xButtons[b].onclick = function() {
-            // Remove the class row from the page
-            this.parentNode.parentNode.removeChild(this.parentNode);
+        xButtons[b].onclick = function(e) {
+            // Prevents button from trying to send user somewhere else
+            e.preventDefault();
+
+            // Grab the button's id
+            var xCourseId = this.parentNode.classList[1]
+            
+            // Get courseObject based on classList
+            var courseObject
+            for (var c = 0; c < courses.length; c++) {
+                if (courses[c].id === xCourseId) {
+                    courseObject = courses[c]
+                }
+            }
 
             // Grab the index of the removed class
-            var indexToRemove = classList.indexOf(this.parentNode.classList[1])
-            
+            var indexToRemove
+            for (var r = 0; r < classList.length; r++) {
+                if (classList[r].id === courseObject.id) {
+                    indexToRemove = r;
+                }
+            }
+
             // Remove that index class from the classesList so it can be added again if needed
             classList.splice(indexToRemove, 1);
+            
+
+            // Remove the class row from the page
+            console.log(this.parentNode)
+            this.parentNode.parentNode.removeChild(this.parentNode);
+
 
 
             // Change Registration message to let user know their changes aren't saved
