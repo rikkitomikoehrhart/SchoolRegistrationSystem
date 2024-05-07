@@ -409,7 +409,7 @@ function okToAddClass(e) {
     // Check to see if there are any conflicts
     if (okToAdd) {
         for (var c = 0; c < classList.length; c++) {
-            var classListTime = getDays(classList[c])
+            var classListTime = getDays(classList[c].id)
 
             // If the class the user wants to add's day and time match a class
             // already selected by the user then change okToAdd to false. 
